@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { useApiQuery } from '../../../utils/useApi'
+import { UseApiQuery } from '../../../utils/useApi'
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -16,6 +16,6 @@ export default async function handler(
     }),
     body: `${JSON.stringify(body)}`
   }
-  const { response, status } = await useApiQuery(params)
+  const { response, status } = await UseApiQuery(params)
   return res.status(status).json(response)
 }
