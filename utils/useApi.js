@@ -1,7 +1,7 @@
-export const useApiQuery = async (params) => {
+export const UseApiQuery = async (params) => {
   let status = 0
 
-  const response = await fetch(params.path, useApiMethod(params))
+  const response = await fetch(params.path, UseApiMethod(params))
     .then((res) => {
       status = res.status
       return res.json()
@@ -25,7 +25,7 @@ export const useApiQuery = async (params) => {
   return { response, status }
 }
 
-export const useApiMethod = (params) => {
+export const UseApiMethod = (params) => {
   if (
     params.method === 'POST' ||
     params.method === 'PATCH' ||
