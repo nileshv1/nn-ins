@@ -1,20 +1,21 @@
-import { Container } from "@mui/material";
-import variables from "../../styles/variables.module.scss";
+import React from "react";
 import { useRouter } from "next/router";
+import { Container } from "@mui/material";
 import { ROUTE_PATHS } from "@/constants/constants";
 
-const Home = () => {
+const Car: React.FC = () => {
   const router = useRouter();
+
   const handleContinue = () => {
-    router.push(ROUTE_PATHS.CAR);
+    router.push(ROUTE_PATHS.MOTOR);
   };
 
   return (
     <Container>
-      <h1 style={{ color: variables.primaryColor }}>hello Next js...</h1>
+      <h1>Page 1</h1>
       <button onClick={handleContinue}>Continue</button>
     </Container>
   );
 };
 
-export default Home;
+export default Car;
