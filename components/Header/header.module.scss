@@ -1,0 +1,16 @@
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+
+  .header_profile {
+    font-size: 17px;
+    font-weight: bold;
+  }
+
+  .header_company_info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
