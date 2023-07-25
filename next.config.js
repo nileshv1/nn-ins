@@ -11,5 +11,4 @@ module.exports = {
   eslint: {
     dirs: ['pages', 'utils', 'components', 'hooks']
   },
-  pageExtensions: ['page.js', 'page.jsx', 'page.ts', 'page.tsx'],
 }
