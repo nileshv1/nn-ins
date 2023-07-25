@@ -1,3 +1,2 @@
-import Car from './car';
-
+import Car from './Car';
 export default Car;

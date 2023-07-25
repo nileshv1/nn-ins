@@ -24,6 +24,9 @@ function Dropdown(props) {
                     }
                     return selected
                 }}
+                sx={{
+                    height:35,
+                }}
                 value={dropdownValue}
                 label="Age"
                 onChange={handleChange}
