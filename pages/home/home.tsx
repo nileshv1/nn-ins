@@ -1,28 +1,48 @@
-import { Container } from "@mui/material";
+import {
+  BANNER_IMAGE_TEXT,
+  HEADER_INSURANCE,
+  HOME_HEADER_TEXT,
+} from "@/constants/text_constants";
+import { assurance_auto, contenthome, habitation } from "@/public/images";
+import { Box } from "@mui/material";
+import React from "react";
+import Image from "next/image";
+import classes from "../../styles/page.module.scss";
 import { useRouter } from "next/router";
 import { ROUTE_PATHS } from "@/constants/constants";
-import Grid from "@mui/material/Unstable_Grid2";
-import classes from "../../styles/page.module.scss";
-import Header from "@/components/Header";
 import Banner from "@/components/Banner";
-import { contenthome } from "@/public/images";
-import { BANNER_IMAGE_TEXT } from "@/constants/text_constants";
-import Dashboard from "../dashboard";
 
-const Home = () => {
+const Home: React.FC = () => {
   const router = useRouter();
-  const handleContinue = () => {
-    router.push(ROUTE_PATHS.CAR);
-  };
 
+  const handleContinue = () => {
+    router.push(ROUTE_PATHS.HABITATION);
+  };
   return (
-    <Container className={classes.home_container}>
-      <Grid xs={12} sm={12} md={6} mdOffset={3}>
-        <Header />
-        <Banner image={contenthome} imageText={BANNER_IMAGE_TEXT} />
-        <Dashboard />
-      </Grid>
-    </Container>
+    <Box>
+      <Banner image={contenthome} imageText={BANNER_IMAGE_TEXT} />
+      <Box sx={{ py: 4 }}>
+        <Box className={classes.page_header_text}>
+          {HOME_HEADER_TEXT}
+          <hr className={classes.horizontal_line} />
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          backgroundColor: "#98AFC7",
+        }}
+      >
+        <Box className={classes.header_text}>{HEADER_INSURANCE}</Box>
+        <Box className={classes.home_content}>
+          <a onClick={handleContinue} className={classes.cursor}>
+            <Image src={assurance_auto} alt="" width="116" height="117" />
+          </a>
+          <a onClick={handleContinue} className={classes.cursor}>
+            <Image src={habitation} alt="" width="116" height="117" />
+          </a>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
