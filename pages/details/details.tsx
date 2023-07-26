@@ -28,14 +28,14 @@ const Details: React.FC = () => {
   const handleContinue = () => {
     router.push(ROUTE_PATHS.MOTOR);
   };
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
   const theme = createTheme({
     typography: {
       subtitle2: {
         fontSize: 16,
         fontWeight: 550,
       },
-    }
+    },
     // palette: {
     //   salmon: theme.palette.augmentColor({
     //     color: {
@@ -49,9 +49,12 @@ const Details: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <Paper>
-        <Box sx={{ mx: "auto", width: { xs:"90%", md:"100%"} }} border="0px solid green">
+        <Box
+          sx={{ mx: "auto", width: { xs: "90%", md: "100%" } }}
+          border="0px solid green"
+        >
           <Grid container border="0px solid pink">
-            <Grid md={4} mdOffset={4} xs={12} sx={{ mb:4 }}>
+            <Grid md={4} mdOffset={4} xs={12} sx={{ mb: 4 }}>
               <Typography variant="h6">Your Car :</Typography>
               <Divider color="#20ea3c" sx={{ height: 1.8, width: "60px" }} />
             </Grid>
@@ -250,21 +253,29 @@ const Details: React.FC = () => {
                   including discounts (excluding trade-in)
                 </Typography>
               </Grid>
-              <Grid md={5} xs={12} sx={{  display: "flex", justifyContent: {xs:"flex-start", md:"flex-end"} }}>
-                <Typography  component="span">&euro;</Typography>
-                <FormControl component="span" sx={{width:"150px", ml:2}} variant="outlined">
+              <Grid
+                md={5}
+                xs={12}
+                sx={{
+                  display: "flex",
+                  justifyContent: { xs: "flex-start", md: "flex-end" },
+                }}
+              >
+                <Typography component="span">&euro;</Typography>
+                <FormControl
+                  component="span"
+                  sx={{ width: "150px", ml: 2 }}
+                  variant="outlined"
+                >
                   <OutlinedInput
                     id="outlined-adornment-weight"
                     aria-describedby="outlined-weight-helper-text"
                     type="number"
-                    sx={{ height: 35,}}
-                    inputProps={
-                      {
-                        'aria-label': 'weight',
-                      }
-                    }
+                    sx={{ height: 35 }}
+                    inputProps={{
+                      "aria-label": "weight",
+                    }}
                   />
-                  
                 </FormControl>
               </Grid>
             </Grid>
@@ -287,7 +298,10 @@ const Details: React.FC = () => {
               <Grid
                 md={4}
                 xs={12}
-                sx={{ display: "flex", justifyContent: {xs:"flex-start", md:"flex-end"} }}
+                sx={{
+                  display: "flex",
+                  justifyContent: { xs: "flex-start", md: "flex-end" },
+                }}
               >
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker />
