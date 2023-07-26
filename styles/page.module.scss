@@ -97,7 +97,7 @@
 
 .center::before,
 .center::after {
-  content: '';
+  content: "";
   left: 50%;
   position: absolute;
   filter: blur(45px);
@@ -229,7 +229,72 @@
 }
 
 $primary-color: #64ff00;
- 
+
 :export {
   primaryColor: $primary-color;
+}
+
+.home_container {
+  max-width: 1000px;
+}
+
+.horizontal_line {
+  width: 5rem;
+  height: 0.18rem;
+  color: #20ea3c;
+  background-color: #20ea3c;
+  margin: 0;
+  margin-top: 8px;
+  border: 5px;
+}
+
+.home_content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.banner_image_container {
+  position: relative;
+
+  .banner_image {
+    width: 100%;
+    height: auto;
+  }
+
+  span {
+    position: absolute;
+    top: 30%;
+    left: 30px;
+    color: #fff;
+    font-size: 16px;
+    max-width: 210px;
+  }
+}
+
+.header_text {
+  padding: 30px;
+  color: white;
+  font-size: 16px;
+}
+
+.page_header_text {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 992px) {
+  .page_header_text {
+    font-size: 16px;
+  }
+  .header_text {
+    font-size: 14px;
+  }
+  .banner_image_container {
+    span {
+      font-size: 14px;
+      top: 20%;
+    }
+  }
 }
