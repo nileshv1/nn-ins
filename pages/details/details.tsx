@@ -286,6 +286,8 @@ const Details: React.FC = () => {
                     sx={{ height: 32 }}
                     inputProps={{
                       "aria-label": "weight",
+                      min:2000,
+                      max:157300
                     }}
                   />
                 </FormControl>
