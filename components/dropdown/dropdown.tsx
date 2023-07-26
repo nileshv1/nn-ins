@@ -4,6 +4,7 @@ import {
   OutlinedInput,
   Select,
   SelectChangeEvent,
+  FormHelperText
 } from "@mui/material";
 import React, { useState } from "react";
 
@@ -22,7 +23,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
   console.log(dropdownValue);
 
   return (
-    <FormControl size="small" fullWidth>
+    <FormControl size="small" fullWidth error={!dropdownValue}>
       {/* <InputLabel id="demo-simple-select-label">{label}</InputLabel> */}
       <Select
         labelId="demo-simple-select-label"
@@ -53,6 +54,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
           );
         })}
       </Select>
+      {!dropdownValue ? <FormHelperText>Required</FormHelperText> :<></>}
     </FormControl>
   );
 };

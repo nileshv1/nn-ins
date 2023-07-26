@@ -2,7 +2,8 @@ export const HOME = '/'
 
 export enum ROUTE_PATHS {
     MOTOR = '/motor',
-    CAR = '/details'
+    CAR = '/details',
+    HABITATION = '/habitation'
 }
 
 

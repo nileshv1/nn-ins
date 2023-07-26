@@ -10,6 +10,7 @@ import {
   FormControl,
   OutlinedInput,
   Divider,
+  FormHelperText
 } from "@mui/material";
 // import variables from '../../styles/variables.module.scss'
 import Grid from "@mui/material/Unstable_Grid2";
@@ -28,6 +29,8 @@ const Details: React.FC = () => {
     router.push(ROUTE_PATHS.MOTOR);
   };
   const [toggle, setToggle] = useState(false);
+  const [number, setNumber] = useState("")
+  console.log(number)
   const theme = createTheme({
     typography: {
       subtitle2: {
@@ -280,6 +283,7 @@ const Details: React.FC = () => {
                   variant="outlined"
                 >
                   <OutlinedInput
+                    error={!number}
                     id="outlined-adornment-weight"
                     aria-describedby="outlined-weight-helper-text"
                     type="number"
@@ -289,7 +293,11 @@ const Details: React.FC = () => {
                       min:2000,
                       max:157300
                     }}
+                    value={number}
+                    onChange={(e)=> setNumber(e.target.value)}
+                    // helperText="Some important text"
                   />
+                  {!number ? <FormHelperText error>Required</FormHelperText> :<></>}
                 </FormControl>
               </Grid>
             </Grid>
@@ -318,7 +326,7 @@ const Details: React.FC = () => {
                 }}
               >
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker slotProps={{ textField: { size: "small" } }} />
+                  <DatePicker slotProps={{ textField: { size: "small" } }} required />
                 </LocalizationProvider>
               </Grid>
             </Grid>
