@@ -326,7 +326,7 @@ const Details: React.FC = () => {
                 }}
               >
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker slotProps={{ textField: { size: "small" } }} required />
+                  <DatePicker slotProps={{ textField: { size: "small" } }}  />
                 </LocalizationProvider>
               </Grid>
             </Grid>
