@@ -41,6 +41,7 @@ const Habitation: React.FC = () => {
             <Typography variant="body2" className={classes.text_style}>
               Compose your ideal home insurance policy
             </Typography>
+            {/* <hr className="horizontal-line" /> */}
           </Grid>
 
           <Grid item xs={2}>
@@ -66,6 +67,7 @@ const Habitation: React.FC = () => {
               size="medium"
               color="success"
               sx={{ width: 115 }}
+              href="/Simulation"
             >
               Simulation
             </Button>
