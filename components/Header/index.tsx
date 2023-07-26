@@ -1,6 +1,6 @@
 // import { headerlogo, nngroup } from "@/public/images";
 import { headerlogo, nngroup } from "@/public/images";
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
 import Image from "next/image";
 import classes from "./header.module.scss";

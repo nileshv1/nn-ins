@@ -234,6 +234,10 @@ $primary-color: #64ff00;
   primaryColor: $primary-color;
 }
 
+.home_container {
+  max-width: 1000px;
+}
+
 .horizontal_line {
   width: 5rem;
   height: 0.18rem;
@@ -272,5 +276,25 @@ $primary-color: #64ff00;
 .header_text {
   padding: 30px;
   color: white;
+  font-size: 16px;
+}
+
+.page_header_text {
   font-size: 18px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 992px) {
+  .page_header_text {
+    font-size: 16px;
+  }
+  .header_text {
+    font-size: 14px;
+  }
+  .banner_image_container {
+    span {
+      font-size: 14px;
+      top: 20%;
+    }
+  }
 }

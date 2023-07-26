@@ -1,5 +1,4 @@
 import { Container } from "@mui/material";
-import variables from "../../styles/variables.module.scss";
 import { useRouter } from "next/router";
 import { ROUTE_PATHS } from "@/constants/constants";
 import Grid from "@mui/material/Unstable_Grid2";

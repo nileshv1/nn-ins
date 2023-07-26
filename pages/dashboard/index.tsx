@@ -1,10 +1,4 @@
-import Banner from "@/components/Banner";
-import Header from "@/components/Header";
-import {
-  BANNER_IMAGE_TEXT,
-  HEADER_INSURANCE,
-  HOME_HEADER_TEXT,
-} from "@/constants/text_constants";
+import { HEADER_INSURANCE, HOME_HEADER_TEXT } from "@/constants/text_constants";
 import { assurance_auto, contenthome, habitation } from "@/public/images";
 import { Box, Container } from "@mui/material";
 import React from "react";
@@ -22,10 +16,10 @@ const Dashbaord: React.FC = () => {
   return (
     <Box>
       <Box sx={{ py: 4 }}>
-        <h3>
+        <Box className={classes.page_header_text}>
           {HOME_HEADER_TEXT}
           <hr className={classes.horizontal_line} />
-        </h3>
+        </Box>
       </Box>
       <Box
         sx={{
