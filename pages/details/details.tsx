@@ -50,13 +50,13 @@ const Details: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Paper>
+      <Box border="0px solid green">
         <Box
           sx={{ mx: "auto", width: { xs: "90%", md: "100%" } }}
           border="0px solid green"
         >
           <Grid container border="0px solid pink">
-            <Grid md={4} mdOffset={4} xs={12}>
+            <Grid md={6} mdOffset={3} xs={12}>
               <Link href={ROUTE_PATHS.MOTOR}>
                 <Button
                   startIcon={<ArrowBackIosIcon />}
@@ -69,13 +69,13 @@ const Details: React.FC = () => {
                 </Button>
               </Link>
             </Grid>
-            <Grid md={4} mdOffset={4} xs={12} sx={{ mb: 4 }}>
+            <Grid md={6} mdOffset={3} xs={12} sx={{ mb: 4 }}>
               <Typography variant="h6">Your Car :</Typography>
               <Divider color="#20ea3c" sx={{ height: 1.8, width: "60px" }} />
             </Grid>
             <Grid
-              md={4}
-              mdOffset={4}
+              md={6}
+              mdOffset={3}
               xs={12}
               container
               sx={{ mb: 2 }}
@@ -108,8 +108,8 @@ const Details: React.FC = () => {
               )}
             </Grid>
             <Grid
-              md={4}
-              mdOffset={4}
+              md={6}
+              mdOffset={3}
               xs={12}
               container
               sx={{ mb: 2 }}
@@ -142,8 +142,8 @@ const Details: React.FC = () => {
               )}
             </Grid>
             <Grid
-              md={4}
-              mdOffset={4}
+              md={6}
+              mdOffset={3}
               xs={12}
               container
               sx={{ mb: 2 }}
@@ -176,8 +176,8 @@ const Details: React.FC = () => {
               )}
             </Grid>
             <Grid
-              md={4}
-              mdOffset={4}
+              md={6}
+              mdOffset={3}
               xs={12}
               container
               sx={{ mb: 2 }}
@@ -210,8 +210,8 @@ const Details: React.FC = () => {
               )}
             </Grid>
             <Grid
-              md={4}
-              mdOffset={4}
+              md={6}
+              mdOffset={3}
               xs={12}
               container
               sx={{ mb: 2 }}
@@ -230,8 +230,8 @@ const Details: React.FC = () => {
               </Grid>
             </Grid>
             <Grid
-              md={4}
-              mdOffset={4}
+              md={6}
+              mdOffset={3}
               xs={12}
               container
               sx={{ mb: 2 }}
@@ -250,8 +250,8 @@ const Details: React.FC = () => {
               </Grid>
             </Grid>
             <Grid
-              md={4}
-              mdOffset={4}
+              md={6}
+              mdOffset={3}
               xs={12}
               container
               sx={{ mb: 2 }}
@@ -302,8 +302,8 @@ const Details: React.FC = () => {
               </Grid>
             </Grid>
             <Grid
-              md={4}
-              mdOffset={4}
+              md={6}
+              mdOffset={3}
               xs={12}
               container
               sx={{ mb: 2 }}
@@ -331,8 +331,8 @@ const Details: React.FC = () => {
               </Grid>
             </Grid>
             <Grid
-              md={4}
-              mdOffset={4}
+              md={6}
+              mdOffset={3}
               xs={12}
               container
               sx={{ mb: 2 }}
@@ -360,7 +360,7 @@ const Details: React.FC = () => {
             </Grid>
           </Grid>
         </Box>
-      </Paper>
+      </Box>
     </ThemeProvider>
   );
 };
