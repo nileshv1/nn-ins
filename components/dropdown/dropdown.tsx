@@ -36,7 +36,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
           return selected;
         }}
         sx={{
-          height: 35,
+          height: 32,
         }}
         value={dropdownValue}
         label="Age"
