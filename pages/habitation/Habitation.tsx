@@ -67,7 +67,7 @@ const Habitation: React.FC = () => {
               size="medium"
               color="success"
               sx={{ width: 115 }}
-              href="/Simulation"
+              href="/simulation"
             >
               Simulation
             </Button>
