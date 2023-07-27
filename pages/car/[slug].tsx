@@ -82,7 +82,7 @@ const Car: React.FC = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container border="0px solid pink">
               <Grid md={6} mdOffset={3} xs={12}>
-                <Link href={ROUTE_PATHS.MOTOR}>
+                <Link href={ROUTE_PATHS.SIMULATION}>
                   <Button
                     startIcon={<ArrowBackIosIcon />}
                     sx={{
