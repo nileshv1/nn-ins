@@ -4,7 +4,8 @@ import {
   OutlinedInput,
   Select,
   SelectChangeEvent,
-  FormHelperText
+  FormHelperText,
+  InputLabel
 } from "@mui/material";
 import React, { useState } from "react";
 
@@ -12,25 +13,31 @@ interface DropdownProps {
   // Define your expected properties here
   options: Array<{ value: string; label: string }>;
   label: string;
+  register:any;
+  required:any;
+  errors:any;
   // ...
 }
 const Dropdown: React.FC<DropdownProps> = (props) => {
-  const { options, label, ...rest } = props;
-  const [dropdownValue, setDropdownValue] = useState("");
-  const handleChange = (event: SelectChangeEvent) => {
-    setDropdownValue(event.target.value);
-  };
-  console.log(dropdownValue);
+  const { options, label, register, required, errors, ...rest } = props;
+  // console.log(props)
+  // const [dropdownValue, setDropdownValue] = useState("");
+  // const handleChange = (event: SelectChangeEvent) => {
+  //   setDropdownValue(event.target.value);
+  // };
+  // console.log(dropdownValue);
 
   return (
-    <FormControl size="small" fullWidth error={!dropdownValue}>
+    <FormControl size="small" fullWidth >
       {/* <InputLabel id="demo-simple-select-label">{label}</InputLabel> */}
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         input={<OutlinedInput />}
+        // label={label}
+        {...register(label, {required})}
         renderValue={(selected) => {
-          console.log(selected, "selected");
+          // console.log(selected, "selected");
           if (selected.length === 0) {
             return <em>Placeholder</em>;
           }
@@ -39,9 +46,9 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
         sx={{
           height: 32,
         }}
-        value={dropdownValue}
-        label="Age"
-        onChange={handleChange}
+        // value={dropdownValue}
+        // label="Age"
+        // onChange={handleChange}
       >
         <MenuItem disabled value="">
           <em>Select</em>
@@ -54,7 +61,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
           );
         })}
       </Select>
-      {!dropdownValue ? <FormHelperText>Required</FormHelperText> :<></>}
+      {errors[label] &&  <FormHelperText error>Required</FormHelperText> }
     </FormControl>
   );
 };

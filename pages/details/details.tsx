@@ -22,15 +22,20 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import {useForm, Controller} from 'react-hook-form'
 
 const Details: React.FC = () => {
+  const { handleSubmit, control, register, formState:{errors}} = useForm()
+  const onSubmit = (data: any) => {
+    console.log(data)
+  }
   const router = useRouter();
   const handleContinue = () => {
     router.push(ROUTE_PATHS.MOTOR);
   };
   const [toggle, setToggle] = useState(false);
   const [number, setNumber] = useState("")
-  console.log(number)
+  // console.log(number)
   const theme = createTheme({
     typography: {
       subtitle2: {
@@ -55,6 +60,7 @@ const Details: React.FC = () => {
           sx={{ mx: "auto", width: { xs: "90%", md: "100%" } }}
           border="0px solid green"
         >
+          <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container border="0px solid pink">
             <Grid md={6} mdOffset={3} xs={12}>
               <Link href={ROUTE_PATHS.MOTOR}>
@@ -102,12 +108,15 @@ const Details: React.FC = () => {
                 <Grid md={6} xs={12}>
                   <Dropdown
                     options={Vehicle_Details.Fuels}
-                    label="placeholder"
+                    label="fuel"
+                    register={register}
+                    required
+                    errors={errors}
                   />
                 </Grid>
               )}
             </Grid>
-            <Grid
+             <Grid
               md={6}
               mdOffset={3}
               xs={12}
@@ -136,12 +145,15 @@ const Details: React.FC = () => {
                 <Grid md={6} xs={12}>
                   <Dropdown
                     options={Vehicle_Details.Fuels}
-                    label="placeholder"
+                    label="brand"
+                    register={register}
+                    required
+                    errors={errors}
                   />
                 </Grid>
               )}
             </Grid>
-            <Grid
+            <Grid 
               md={6}
               mdOffset={3}
               xs={12}
@@ -170,12 +182,15 @@ const Details: React.FC = () => {
                 <Grid md={6} xs={12}>
                   <Dropdown
                     options={Vehicle_Details.Fuels}
-                    label="placeholder"
+                    label="model"
+                    register={register}
+                    required
+                    errors={errors}
                   />
                 </Grid>
               )}
             </Grid>
-            <Grid
+            <Grid 
               md={6}
               mdOffset={3}
               xs={12}
@@ -204,12 +219,15 @@ const Details: React.FC = () => {
                 <Grid md={6} xs={12}>
                   <Dropdown
                     options={Vehicle_Details.Fuels}
-                    label="placeholder"
+                    label="type"
+                    register={register}
+                    required
+                    errors={errors}
                   />
                 </Grid>
               )}
             </Grid>
-            <Grid
+            <Grid 
               md={6}
               mdOffset={3}
               xs={12}
@@ -226,10 +244,14 @@ const Details: React.FC = () => {
                 </Typography>
               </Grid>
               <Grid md={6} xs={12}>
-                <Dropdown options={Vehicle_Details.Fuels} label="placeholder" />
+                <Dropdown options={Vehicle_Details.Fuels} 
+                label="construction"
+                register={register}
+                required
+                errors={errors} />
               </Grid>
             </Grid>
-            <Grid
+            <Grid 
               md={6}
               mdOffset={3}
               xs={12}
@@ -246,10 +268,14 @@ const Details: React.FC = () => {
                 </Typography>
               </Grid>
               <Grid md={6} xs={12}>
-                <Dropdown options={Vehicle_Details.Years} label="placeholder" />
+                <Dropdown options={Vehicle_Details.Years} 
+                label="years"
+                register={register}
+                required
+                errors={errors} />
               </Grid>
             </Grid>
-            <Grid
+            <Grid 
               md={6}
               mdOffset={3}
               xs={12}
@@ -283,7 +309,7 @@ const Details: React.FC = () => {
                   variant="outlined"
                 >
                   <OutlinedInput
-                    error={!number}
+                    // error={!number}
                     id="outlined-adornment-weight"
                     aria-describedby="outlined-weight-helper-text"
                     type="number"
@@ -297,11 +323,12 @@ const Details: React.FC = () => {
                     onChange={(e)=> setNumber(e.target.value)}
                     // helperText="Some important text"
                   />
-                  {!number ? <FormHelperText error>Required</FormHelperText> :<></>}
+
+                  {/* {!number ? <FormHelperText error>Required</FormHelperText> :<></>} */}
                 </FormControl>
               </Grid>
             </Grid>
-            <Grid
+            <Grid 
               md={6}
               mdOffset={3}
               xs={12}
@@ -329,7 +356,7 @@ const Details: React.FC = () => {
                   <DatePicker slotProps={{ textField: { size: "small" } }}  />
                 </LocalizationProvider>
               </Grid>
-            </Grid>
+            </Grid> 
             <Grid
               md={6}
               mdOffset={3}
@@ -360,6 +387,7 @@ const Details: React.FC = () => {
               </Grid>
             </Grid>
           </Grid>
+          </form>
         </Box>
       </Box>
     </ThemeProvider>
