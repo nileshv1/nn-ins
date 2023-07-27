@@ -346,6 +346,7 @@ const Details: React.FC = () => {
                   variant="contained"
                   color="primary"
                   size="small"
+                  type='submit'
                   sx={{
                     px: 9,
                     backgroundColor: "#55B862",
