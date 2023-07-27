@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useEffect}from "react";
 import { useRouter } from "next/router";
 import { Button, Container } from "@mui/material";
 import { ROUTE_PATHS } from "@/constants/constants";
@@ -27,7 +27,7 @@ import Banner from "@/components/Banner";
 import { policybanner } from "@/public/images";
 import { BANNER_IMAGE_TEXT } from "@/constants/text_constants";
 
-const Details: React.FC = () => {
+const Car: React.FC = () => {
   const {
     handleSubmit,
     control,
@@ -38,12 +38,22 @@ const Details: React.FC = () => {
     console.log(data);
   };
   const router = useRouter();
+  const slug = router.query.slug;
+  
+  useEffect(()=>{
+    if(slug=="YourCarDetails"){
+      setToggle(true)
+    }else if( slug=="YourCar"){
+      setToggle(false)
+    }
+  })
   const handleContinue = () => {
     router.push(ROUTE_PATHS.MOTOR);
   };
   const [toggle, setToggle] = useState(false);
+  
   const [number, setNumber] = useState("");
-  // console.log(number)
+  
   const theme = createTheme({
     typography: {
       subtitle2: {
@@ -405,4 +415,4 @@ const Details: React.FC = () => {
   );
 };
 
-export default Details;
+export default Car;

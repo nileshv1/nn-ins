@@ -21,12 +21,6 @@ interface DropdownProps {
 }
 const Dropdown: React.FC<DropdownProps> = (props) => {
   const { options, label, register, required, errors, ...rest } = props;
-  // console.log(props)
-  // const [dropdownValue, setDropdownValue] = useState("");
-  // const handleChange = (event: SelectChangeEvent) => {
-  //   setDropdownValue(event.target.value);
-  // };
-  // console.log(dropdownValue);
 
   return (
     <FormControl size="small" fullWidth >
@@ -37,19 +31,10 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
         input={<OutlinedInput />}
         // label={label}
         {...register(label, {required})}
-        // renderValue={(selected) => {
-        //   console.log(selected, "selected");
-        //   if (selected.length === 0) {
-        //     return <em>Placeholder</em>;
-        //   }
-        //   return selected;
-        // }}
+        
         sx={{
           height: 32,
         }}
-        // value={dropdownValue}
-        // label="Age"
-        // onChange={handleChange}
       >
         <MenuItem disabled value="">
           <em>Select</em>
