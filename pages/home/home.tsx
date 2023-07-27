@@ -1,5 +1,4 @@
 import { ROUTE_PATHS } from "@/constants/constants";
-import { HEADER_INSURANCE, HOME_HEADER_TEXT } from "@/constants/text_constants";
 import { assurance_auto, contenthome, habitation } from "@/public/images";
 import { Box } from "@mui/material";
 import { useTranslation } from "next-i18next";
