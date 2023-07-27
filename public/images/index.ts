@@ -10,6 +10,7 @@ import mail from "./mail.png";
 import habitationImg from "./habitationImg.png";
 import rgfInsurance from "./rgfinsurances.png";
 import policybanner from "./policybanner.png";
+import closeIcon from "./closeIcon.svg";
 
 export {
   logo,
@@ -24,4 +25,5 @@ export {
   habitationImg,
   rgfInsurance,
   policybanner,
+  closeIcon,
 };
