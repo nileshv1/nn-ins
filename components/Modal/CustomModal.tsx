@@ -1,5 +1,17 @@
 import React from "react";
 import { Box, Modal, Typography } from "@mui/material";
+import classes from "../../styles/page.module.scss";
+import Image from "next/image";
+import { closeIcon } from "@/public/images";
+import {
+  MODAL_TITLE,
+  CONTENT_MODALP1,
+  CONTENT_MODALP2,
+  CONTENT_MODALP3,
+  CONTENT_MODALP4,
+  CONTENT_MODALP5,
+  CONTENT_MODALP6,
+} from "@/constants/text_constants";
 
 interface CustomModalProps {
   open: boolean;
@@ -20,43 +32,32 @@ const style = {
 
 const CustomModal: React.FC<CustomModalProps> = ({ open, setOpen }) => {
   return (
-    <div className="modal-style">
+    <div>
       <Modal
         open={open}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        // className={classes.modal_style}
       >
-        <Box sx={style}>
+        <Box sx={style} className={classes.modal_style}>
+          <div className={classes.modal_head}>
+            <Image
+              src={closeIcon}
+              alt="close"
+              width="20"
+              height="20"
+              onClick={() => setOpen(false)}
+            />
+          </div>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Le numéro de chassis
+            {MODAL_TITLE}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <p>
-              7 Le numéro de chassis Ce numéro se trouve généralement à
-              plusieurs endroits :
-            </p>
-            <p>
-              Sur la planche de bord côté conducteur – vous pouvez le voir à
-              travers le pare-brise depuis l’extérieur de la voiture.
-            </p>
-            <p>
-              Sur la porte côté conducteur, vérifiez l’autocollant qui contient
-              des informations sur la voiture, y compris le numéro de chassis.
-            </p>{" "}
-            <p>
-              {" "}
-              Dans le compartiment moteur – ce numéro peut se trouver sur le
-              bloc moteur ou d’autres pièces du moteur.{" "}
-            </p>
-            <p>
-              {" "}
-              Sur les documents d’immatriculation de la voiture – généralement
-              sur le certificat d’immatriculation du véhicule.
-            </p>
-            <p>
-              Sur vos documents d’assurance – généralement sur votre carte ou
-              police d’assurance.
-            </p>
+            <p>{CONTENT_MODALP1}</p>
+            <p>{CONTENT_MODALP2}</p>
+            <p>{CONTENT_MODALP3}</p> <p> {CONTENT_MODALP4} </p>
+            <p> {CONTENT_MODALP5}</p>
+            <p>{CONTENT_MODALP6}</p>
           </Typography>
         </Box>
       </Modal>

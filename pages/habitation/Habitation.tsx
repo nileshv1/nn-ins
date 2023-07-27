@@ -7,6 +7,16 @@ import Typography from "@mui/material/Typography";
 import { Box, Grid } from "@mui/material";
 import classes from "../../styles/habitation/habitation.module.scss";
 import Image from "next/image";
+import {
+  HABITATION_CARD_CONTENT,
+  HABITATION_HEADING,
+  HABITATION_SIMULATION_CONTENT,
+  HABITATION_RENDEZVOUS_CONTENT,
+  HABITATION_CONTACT_CONTENT,
+  HABITATION_SIMULATION_BTN,
+  HABITATION_RENDEZVOUS_BTN,
+  HABITATION_CONTACT_BTN,
+} from "@/constants/text_constants";
 
 const Habitation: React.FC = () => {
   return (
@@ -26,9 +36,7 @@ const Habitation: React.FC = () => {
             />
             <CardContent>
               <Typography variant="body2" color="text.secondary">
-                Benefit from comprehensive car insurance for your private or
-                professional car, with the best covers and at an
-                ultra-competitive price!
+                {HABITATION_CARD_CONTENT}
               </Typography>
             </CardContent>
           </Card>
@@ -39,7 +47,7 @@ const Habitation: React.FC = () => {
         <Grid container spacing={2} alignItems="center" sx={{ px: 2 }}>
           <Grid item xs={12}>
             <Typography variant="body2" className={classes.text_style}>
-              Compose your ideal home insurance policy
+              {HABITATION_HEADING}
             </Typography>
             {/* <hr className="horizontal-line" /> */}
           </Grid>
@@ -58,7 +66,7 @@ const Habitation: React.FC = () => {
               className={classes.text_style}
               sx={{ fontSize: 12 }}
             >
-              I make an online simulation
+              {HABITATION_SIMULATION_CONTENT}
             </Typography>
           </Grid>
           <Grid item xs={4}>
@@ -69,7 +77,7 @@ const Habitation: React.FC = () => {
               sx={{ width: 115 }}
               href="/simulation"
             >
-              Simulation
+              {HABITATION_SIMULATION_BTN}
             </Button>
           </Grid>
 
@@ -87,7 +95,7 @@ const Habitation: React.FC = () => {
               className={classes.text_style}
               sx={{ fontSize: 12 }}
             >
-              Make an appointment with a consultant
+              {HABITATION_RENDEZVOUS_CONTENT}
             </Typography>
           </Grid>
           <Grid item xs={4}>
@@ -97,7 +105,7 @@ const Habitation: React.FC = () => {
               color="warning"
               sx={{ width: 115 }}
             >
-              Rendezvous
+              {HABITATION_RENDEZVOUS_BTN}
             </Button>
           </Grid>
 
@@ -115,12 +123,12 @@ const Habitation: React.FC = () => {
               className={classes.text_style}
               sx={{ fontSize: 12 }}
             >
-              I would like to receive more information
+              {HABITATION_CONTACT_CONTENT}
             </Typography>
           </Grid>
           <Grid item xs={4}>
             <Button variant="contained" size="medium" sx={{ width: 115 }}>
-              Contact
+              {HABITATION_CONTACT_BTN}
             </Button>
           </Grid>
         </Grid>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -7,6 +7,13 @@ import Typography from "@mui/material/Typography";
 import { Box, Grid, InputLabel, TextField } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CustomModal from "@/components/Modal/CustomModal";
+import classes from "../../styles/page.module.scss";
+import {
+  SIMULATION_HEADER_TEXT,
+  SIMULATION_CONTENT_LABEL,
+  SIMULATION_NEXT_BTN,
+  SIMULATION_WITHOUT_CHASSIS_BTN,
+} from "@/constants/text_constants";
 
 const Simulation: React.FC = () => {
   const [userInput, setUserInput] = React.useState("");
@@ -33,7 +40,7 @@ const Simulation: React.FC = () => {
             />
             <CardContent>
               <Typography variant="h5" color="text.secondary">
-                Online simulation
+                {SIMULATION_HEADER_TEXT}
               </Typography>
               {/* <hr className="horizontal-line" /> */}
             </CardContent>
@@ -43,7 +50,7 @@ const Simulation: React.FC = () => {
       <Grid container spacing={2} sx={{ px: 2 }}>
         <Grid item xs={12}>
           <InputLabel htmlFor="component-simple">
-            Enter your chassis number
+            {SIMULATION_CONTENT_LABEL}
             <InfoOutlinedIcon onClick={() => setOpen((open) => !open)} />
             {open && <CustomModal open={open} setOpen={setOpen} />}
           </InputLabel>
@@ -60,16 +67,21 @@ const Simulation: React.FC = () => {
           <Button
             href="/details"
             variant="contained"
-            color="success"
+            // color="success"
+            sx={{ px: 9, backgroundColor: "#55B862" }}
             disabled={!userInput}
           >
-            Next
+            {SIMULATION_NEXT_BTN}
           </Button>
         </Grid>
 
         <Grid item xs={12} display="flex" justifyContent="flex-end">
-          <Button href="/details" variant="outlined">
-            Without chassis number
+          <Button
+            href="/details"
+            variant="outlined"
+            className={classes.simulation_Btn}
+          >
+            {SIMULATION_WITHOUT_CHASSIS_BTN}
           </Button>
         </Grid>
       </Grid>
