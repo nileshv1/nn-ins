@@ -65,11 +65,11 @@ const Simulation: React.FC = () => {
 
         <Grid item xs={12} display="flex" justifyContent="flex-end">
           <Button
-            href="/details"
             variant="contained"
             // color="success"
             sx={{ px: 9, backgroundColor: "#55B862" }}
             disabled={!userInput}
+            href="/car/YourCarDetails"
           >
             {SIMULATION_NEXT_BTN}
           </Button>
@@ -77,7 +77,7 @@ const Simulation: React.FC = () => {
 
         <Grid item xs={12} display="flex" justifyContent="flex-end">
           <Button
-            href="/details"
+            href="/car/YourCar"
             variant="outlined"
             className={classes.simulation_Btn}
           >
