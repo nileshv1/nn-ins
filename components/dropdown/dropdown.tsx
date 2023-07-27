@@ -16,6 +16,7 @@ interface DropdownProps {
   register:any;
   required:any;
   errors:any;
+  
   // ...
 }
 const Dropdown: React.FC<DropdownProps> = (props) => {
@@ -36,13 +37,13 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
         input={<OutlinedInput />}
         // label={label}
         {...register(label, {required})}
-        renderValue={(selected) => {
-          // console.log(selected, "selected");
-          if (selected.length === 0) {
-            return <em>Placeholder</em>;
-          }
-          return selected;
-        }}
+        // renderValue={(selected) => {
+        //   console.log(selected, "selected");
+        //   if (selected.length === 0) {
+        //     return <em>Placeholder</em>;
+        //   }
+        //   return selected;
+        // }}
         sx={{
           height: 32,
         }}
