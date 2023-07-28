@@ -1,10 +1,9 @@
 $primary-color: #64ff00;
 $home-bg-color: #98AFC7;
- 
-:export {
-  primaryColor: $primary-color;
-}
+$white-color: #ffff;
 
 :export {
+  primaryColor: $primary-color;
+  whiteColor: $white-color;
   homebgColor: $home-bg-color;
 }
