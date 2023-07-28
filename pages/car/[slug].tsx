@@ -146,7 +146,7 @@ const Car: React.FC = () => {
                 alignItems="center"
                 border="0px solid orange"
               >
-                <Grid md={6} xs={12}>
+                <Grid md={6} xs={5}>
                   <Typography variant="body1" gutterBottom>
                     Brand
                   </Typography>
@@ -183,7 +183,7 @@ const Car: React.FC = () => {
                 alignItems="center"
                 border="0px solid orange"
               >
-                <Grid md={6} xs={12}>
+                <Grid md={6} xs={5}>
                   <Typography variant="body1" gutterBottom>
                     Model
                   </Typography>
@@ -220,7 +220,7 @@ const Car: React.FC = () => {
                 alignItems="center"
                 border="0px solid orange"
               >
-                <Grid md={6} xs={12}>
+                <Grid md={6} xs={5}>
                   <Typography variant="body1" gutterBottom>
                     Type
                   </Typography>
