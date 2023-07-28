@@ -3,15 +3,7 @@ import { Box, Modal, Typography } from "@mui/material";
 import classes from "../../styles/page.module.scss";
 import Image from "next/image";
 import { closeIcon } from "@/public/images";
-import {
-  MODAL_TITLE,
-  CONTENT_MODALP1,
-  CONTENT_MODALP2,
-  CONTENT_MODALP3,
-  CONTENT_MODALP4,
-  CONTENT_MODALP5,
-  CONTENT_MODALP6,
-} from "@/constants/text_constants";
+import { useTranslation } from "next-i18next";
 
 interface CustomModalProps {
   open: boolean;
@@ -31,13 +23,13 @@ const style = {
 };
 
 const CustomModal: React.FC<CustomModalProps> = ({ open, setOpen }) => {
+  const { t } = useTranslation();
   return (
     <div>
       <Modal
         open={open}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        // className={classes.modal_style}
       >
         <Box sx={style} className={classes.modal_style}>
           <div className={classes.modal_head}>
@@ -50,14 +42,14 @@ const CustomModal: React.FC<CustomModalProps> = ({ open, setOpen }) => {
             />
           </div>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {MODAL_TITLE}
+            {t("modalTitle")}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <p>{CONTENT_MODALP1}</p>
-            <p>{CONTENT_MODALP2}</p>
-            <p>{CONTENT_MODALP3}</p> <p> {CONTENT_MODALP4} </p>
-            <p> {CONTENT_MODALP5}</p>
-            <p>{CONTENT_MODALP6}</p>
+            <p>{t("modalContentP1")}</p>
+            <p>{t("modalContentP2")}</p>
+            <p>{t("modalContentP3")}</p> <p> {t("modalContentP4")} </p>
+            <p>{t("modalContentP5")}</p>
+            <p>{t("modalContentP6")}</p>
           </Typography>
         </Box>
       </Modal>

@@ -7,21 +7,14 @@ import Typography from "@mui/material/Typography";
 import { Box, Grid } from "@mui/material";
 import classes from "../../styles/habitation/habitation.module.scss";
 import Image from "next/image";
-import {
-  HABITATION_CARD_CONTENT,
-  HABITATION_HEADING,
-  HABITATION_SIMULATION_CONTENT,
-  HABITATION_RENDEZVOUS_CONTENT,
-  HABITATION_CONTACT_CONTENT,
-  HABITATION_SIMULATION_BTN,
-  HABITATION_RENDEZVOUS_BTN,
-  HABITATION_CONTACT_BTN,
-} from "@/constants/text_constants";
 import { ROUTE_PATHS } from "@/constants/constants";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
+import styles from "../../styles/variables.module.scss";
 
 const Habitation: React.FC = () => {
   const router = useRouter();
+  const { t } = useTranslation();
 
   const handleSimulation = () => {
     router.push(ROUTE_PATHS.SIMULATION);
@@ -44,20 +37,20 @@ const Habitation: React.FC = () => {
             />
             <CardContent>
               <Typography variant="body2" color="text.secondary">
-                {HABITATION_CARD_CONTENT}
+                {t("habitationCardContent")}
               </Typography>
             </CardContent>
           </Card>
         </Grid>
       </Grid>
 
-      <div className={classes.info_section}>
+      <Box className={classes.info_section}>
         <Grid container spacing={2} alignItems="center" sx={{ px: 2 }}>
           <Grid item xs={12}>
             <Typography variant="body2" className={classes.text_style}>
-              {HABITATION_HEADING}
+              {t("habitationHeading")}
             </Typography>
-            {/* <hr className="horizontal-line" /> */}
+            <hr className={classes.horizontal_line} />
           </Grid>
 
           <Grid item xs={2}>
@@ -74,18 +67,17 @@ const Habitation: React.FC = () => {
               className={classes.text_style}
               sx={{ fontSize: 12 }}
             >
-              {HABITATION_SIMULATION_CONTENT}
+              {t("habitationSimulationContent")}
             </Typography>
           </Grid>
           <Grid item xs={5}>
             <Button
               variant="contained"
-              size="medium"
               color="success"
-              sx={{ width: 115 }}
+              sx={{ size: { xs: "small", md: "medium", width: 110 } }}
               onClick={handleSimulation}
             >
-              {HABITATION_SIMULATION_BTN}
+              {t("habitationSimulationBtn")}
             </Button>
           </Grid>
 
@@ -103,7 +95,7 @@ const Habitation: React.FC = () => {
               className={classes.text_style}
               sx={{ fontSize: 12 }}
             >
-              {HABITATION_RENDEZVOUS_CONTENT}
+              {t("habitationRendezvousContent")}
             </Typography>
           </Grid>
           <Grid item xs={5}>
@@ -111,9 +103,9 @@ const Habitation: React.FC = () => {
               variant="contained"
               size="medium"
               color="warning"
-              sx={{ width: 115 }}
+              sx={{ size: { xs: "small", md: "medium", width: 110 } }}
             >
-              {HABITATION_RENDEZVOUS_BTN}
+              {t("habitationRendezvousBtn")}
             </Button>
           </Grid>
 
@@ -131,16 +123,22 @@ const Habitation: React.FC = () => {
               className={classes.text_style}
               sx={{ fontSize: 12 }}
             >
-              {HABITATION_CONTACT_CONTENT}
+              {t("habitationContactContent")}
             </Typography>
           </Grid>
           <Grid item xs={5}>
-            <Button variant="contained" size="medium" sx={{ width: 115 }}>
-              {HABITATION_CONTACT_BTN}
+            <Button
+              variant="contained"
+              size="medium"
+              sx={{
+                size: { xs: "small", md: "medium", width: 110 },
+              }}
+            >
+              {t("habitationContactBtn")}
             </Button>
           </Grid>
         </Grid>
-      </div>
+      </Box>
     </Box>
   );
 };
