@@ -73,9 +73,7 @@ const Habitation: React.FC = () => {
           <Grid item xs={5}>
             <Button
               variant="contained"
-              // size="medium"
               color="success"
-              // sx={{ width: 110 }}
               sx={{ size: { xs: "small", md: "medium", width: 110 } }}
               onClick={handleSimulation}
             >

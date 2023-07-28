@@ -7,9 +7,10 @@ import Typography from "@mui/material/Typography";
 import { Box, Grid, InputLabel, TextField } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CustomModal from "@/components/Modal/CustomModal";
+import classes from "../../styles/page.module.scss";
+import Link from "next/link";
 import { ROUTE_PATHS } from "@/constants/constants";
 import { useRouter } from "next/router";
-import classes from "../../styles/page.module.scss";
 import { useTranslation } from "next-i18next";
 
 const Simulation: React.FC = () => {
@@ -25,10 +26,6 @@ const Simulation: React.FC = () => {
   const handleClickNext = () => {
     router.push(ROUTE_PATHS.CARDETAILS);
     setUserInput("");
-  };
-
-  const handleClick = () => {
-    router.push(ROUTE_PATHS.YOURCAR);
   };
 
   return (
@@ -91,19 +88,21 @@ const Simulation: React.FC = () => {
         </Grid>
 
         <Grid item xs={12} display="flex" justifyContent="flex-end">
-          <Button
-            onClick={handleClick}
-            variant="outlined"
-            sx={{
-              borderColor: "#55B862",
-              color: "#20ea3c",
-              ":hover": {
+          <Link href={ROUTE_PATHS.YOURCAR}>
+            <Button
+              // onClick={handleClick}
+              variant="outlined"
+              sx={{
                 borderColor: "#55B862",
-              },
-            }}
-          >
-            {t("simulationWithoutChassisBtn")}
-          </Button>
+                color: "#20ea3c",
+                ":hover": {
+                  borderColor: "#55B862",
+                },
+              }}
+            >
+              {t("simulationWithoutChassisBtn")}
+            </Button>
+          </Link>
         </Grid>
       </Grid>
     </Box>
