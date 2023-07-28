@@ -4,5 +4,22 @@
     "homeHeaderText" :"Compose your insurance online",
     "headerInsurance" : "Click on your insurance to simulate your premium",
     "headerProfileText" : "Insurance Broker",
-    "headerCompanyText" : "Supported by"
+    "headerCompanyText" : "Supported by",
+    "yourCar": "Your Car",
+    "fuel": "Fuel",
+    "brand":"Brand",
+    "model":"Model",
+    "type":"Type",
+    "yearsOfConstruction":"Year of construction",
+    "initilaRegisteration":"Initial Registration",
+    "invoiceValue":"Invoice value(incl. VAT)",
+    "discounts":"including discounts (excluding trade-in)",
+    "dateOfPurchase":"Date of purchase",
+    "next":"Next",
+    "back":"Back",
+    "esscence":"Esscence",
+    "volkswagen":"Volkswagen",
+    "golf":"Golf Vill",
+    "tsi":"tsi 110"
+
 }

@@ -26,6 +26,7 @@ import { useForm, Controller } from "react-hook-form";
 import Banner from "@/components/Banner";
 import { policybanner } from "@/public/images";
 import { BANNER_IMAGE_TEXT } from "@/constants/text_constants";
+import { useTranslation } from "next-i18next";
 
 const Car: React.FC = () => {
   const {
@@ -39,6 +40,7 @@ const Car: React.FC = () => {
   };
   const router = useRouter();
   const slug = router.query.slug;
+  const { t } = useTranslation();
   
   useEffect(()=>{
     if(slug=="YourCarDetails"){
@@ -90,12 +92,12 @@ const Car: React.FC = () => {
                       textDecoration: "underline grey 0.08rem",
                     }}
                   >
-                    Back
+                    {t("back")}
                   </Button>
                 </Link>
               </Grid>
               <Grid md={6} mdOffset={3} xs={12} sx={{ mb: 4 }}>
-                <Typography variant="h6">Your Car :</Typography>
+                <Typography variant="h6">{t("yourCar")} :</Typography>
                 <Divider color="#20ea3c" sx={{ height: 1.8, width: "60px" }} />
               </Grid>
               <Grid
@@ -111,7 +113,7 @@ const Car: React.FC = () => {
               >
                 <Grid md={6} xs={5}>
                   <Typography variant="body1" gutterBottom>
-                    Fuel
+                  {t("fuel")}
                   </Typography>
                 </Grid>
                 {toggle ? (
@@ -120,7 +122,7 @@ const Car: React.FC = () => {
                       variant="subtitle2"
                       sx={{ display: "flex", justifyContent: "flex-end" }}
                     >
-                      Esscence
+                      {t("essence")}
                     </Typography>
                   </Grid>
                 ) : (
@@ -148,7 +150,7 @@ const Car: React.FC = () => {
               >
                 <Grid md={6} xs={5}>
                   <Typography variant="body1" gutterBottom>
-                    Brand
+                  {t("brand")}
                   </Typography>
                 </Grid>
                 {toggle ? (
@@ -157,7 +159,7 @@ const Car: React.FC = () => {
                       variant="subtitle2"
                       sx={{ display: "flex", justifyContent: "flex-end" }}
                     >
-                      Volkswagen
+                      {t("volkswagen")}
                     </Typography>
                   </Grid>
                 ) : (
@@ -185,7 +187,7 @@ const Car: React.FC = () => {
               >
                 <Grid md={6} xs={5}>
                   <Typography variant="body1" gutterBottom>
-                    Model
+                  {t("model")}
                   </Typography>
                 </Grid>
                 {toggle ? (
@@ -194,7 +196,7 @@ const Car: React.FC = () => {
                       variant="subtitle2"
                       sx={{ display: "flex", justifyContent: "flex-end" }}
                     >
-                      Golf Vill
+                      {t("golf")}
                     </Typography>
                   </Grid>
                 ) : (
@@ -222,7 +224,7 @@ const Car: React.FC = () => {
               >
                 <Grid md={6} xs={5}>
                   <Typography variant="body1" gutterBottom>
-                    Type
+                  {t("type")}
                   </Typography>
                 </Grid>
                 {toggle ? (
@@ -231,7 +233,7 @@ const Car: React.FC = () => {
                       variant="subtitle2"
                       sx={{ display: "flex", justifyContent: "flex-end" }}
                     >
-                      tsi 110
+                      {t("tsi")}
                     </Typography>
                   </Grid>
                 ) : (
@@ -259,7 +261,7 @@ const Car: React.FC = () => {
               >
                 <Grid md={6} xs={12}>
                   <Typography variant="body1" gutterBottom>
-                    Annee de construction
+                  {t("yearsOfConstruction")}
                   </Typography>
                 </Grid>
                 <Grid md={6} xs={12}>
@@ -285,7 +287,7 @@ const Car: React.FC = () => {
               >
                 <Grid md={6} xs={12}>
                   <Typography variant="body1" gutterBottom>
-                    Initial Registration{" "}
+                    {t("initilaRegisteration")}
                   </Typography>
                 </Grid>
                 <Grid md={6} xs={12}>
@@ -311,10 +313,10 @@ const Car: React.FC = () => {
               >
                 <Grid md={7} xs={12}>
                   <Typography variant="body1">
-                    Invoice value(incl. VAT)
+                  {t("invoiceValue")}
                   </Typography>
                   <Typography variant="body2" gutterBottom>
-                    including discounts (excluding trade-in)
+                    {t("discounts")}
                   </Typography>
                 </Grid>
                 <Grid
@@ -362,7 +364,7 @@ const Car: React.FC = () => {
               >
                 <Grid md={8} xs={12}>
                   <Typography variant="body1" gutterBottom>
-                    Date of purchase
+                    {t("dateOfPurchase")}
                   </Typography>
                 </Grid>
                 <Grid
@@ -403,7 +405,7 @@ const Car: React.FC = () => {
                       },
                     }}
                   >
-                    Next
+                    {t("next")}
                   </Button>
                 </Grid>
               </Grid>

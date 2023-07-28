@@ -8,6 +8,7 @@ import { Box, Grid, InputLabel, TextField } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CustomModal from "@/components/Modal/CustomModal";
 import classes from "../../styles/page.module.scss";
+import Link from "next/link";
 import {
   SIMULATION_HEADER_TEXT,
   SIMULATION_CONTENT_LABEL,
@@ -63,23 +64,26 @@ const Simulation: React.FC = () => {
         </Grid>
 
         <Grid item xs={12} display="flex" justifyContent="flex-end">
-          <Button
+         <Link href="/car/YourCarDetails">
+           <Button
             variant="contained"
             // color="success"
             sx={{ px: 9, backgroundColor: "#55B862" }}
             disabled={!userInput}
-            href="/car/YourCarDetails">
+            >
             {SIMULATION_NEXT_BTN}
           </Button>
+          </Link>
         </Grid>
 
         <Grid item xs={12} display="flex" justifyContent="flex-end">
-          <Button
-            href="/car/YourCar"
+         <Link href="/car/YourCar">
+         <Button
             variant="outlined"
             className={classes.simulation_Btn}>
             {SIMULATION_WITHOUT_CHASSIS_BTN}
           </Button>
+         </Link>
         </Grid>
       </Grid>
     </Box>
