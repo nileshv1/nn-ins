@@ -4,5 +4,21 @@
     "homeHeaderText" :"Composez votre assurance en ligne",
     "headerInsurance" : "Cliquez sur votre assurance pour simuler votre prime",
     "headerProfileText" : "Courtier en assurance",
-    "headerCompanyText" : "supporte par"
+    "headerCompanyText" : "supporte par",
+    "yourCar": "Votre Voiture",
+    "fuel": "carburant",
+    "brand":"marque",
+    "model":"modèle",
+    "type":"taper",
+    "yearsOfConstruction":"Année de construction",
+    "initilaRegisteration":"Inscription initiale",
+    "invoiceValue":"Valeur de la facture (TVA incluse)",
+    "discounts":"remises comprises (hors reprise)",
+    "dateOfPurchase":"Date d'achat",
+    "next":"Suivante",
+    "back":"Dos",
+    "essence":"Essence",
+    "volkswagen":"Volkswagen",
+    "golf":"Villa Golf",
+    "tsi":"tsi 110"
 }

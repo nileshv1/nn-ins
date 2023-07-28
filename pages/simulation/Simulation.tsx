@@ -8,6 +8,7 @@ import { Box, Grid, InputLabel, TextField } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CustomModal from "@/components/Modal/CustomModal";
 import classes from "../../styles/page.module.scss";
+import Link from "next/link";
 import {
   SIMULATION_HEADER_TEXT,
   SIMULATION_CONTENT_LABEL,
@@ -27,7 +28,7 @@ const Simulation: React.FC = () => {
   };
 
   const handleClickNext = () => {
-    router.push(ROUTE_PATHS.CARDETAILS);
+    // router.push(ROUTE_PATHS.CARDETAILS);
     setUserInput("");
   };
 
@@ -73,6 +74,7 @@ const Simulation: React.FC = () => {
         </Grid>
 
         <Grid item xs={12} display="flex" justifyContent="flex-end">
+          <Link href={ROUTE_PATHS.CARDETAILS}>
           <Button
             variant="contained"
             // color="success"
@@ -82,17 +84,19 @@ const Simulation: React.FC = () => {
           >
             {SIMULATION_NEXT_BTN}
           </Button>
+          </Link>
           .
         </Grid>
 
         <Grid item xs={12} display="flex" justifyContent="flex-end">
+          <Link href={ROUTE_PATHS.YOURCAR}>
           <Button
-            href={ROUTE_PATHS.YOURCAR}
             variant="outlined"
             className={classes.simulation_Btn}
           >
             {SIMULATION_WITHOUT_CHASSIS_BTN}
           </Button>
+          </Link>
         </Grid>
       </Grid>
     </Box>
