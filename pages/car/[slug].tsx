@@ -2,6 +2,7 @@ import React , {useEffect}from "react";
 import { useRouter } from "next/router";
 import { Button, Container } from "@mui/material";
 import { ROUTE_PATHS } from "@/constants/constants";
+import styles from "../../styles/variables.module.scss"
 import Link from "next/link";
 import {
   Paper,
@@ -98,7 +99,7 @@ const Car: React.FC = () => {
               </Grid>
               <Grid md={6} mdOffset={3} xs={12} sx={{ mb: 4 }}>
                 <Typography variant="h6">{t("yourCar")} :</Typography>
-                <Divider color="#20ea3c" sx={{ height: 1.8, width: "60px" }} />
+                <Divider color={styles.primaryColor} sx={{ height: 1.8, width: "60px" }} />
               </Grid>
               <Grid
                 md={6}
@@ -399,9 +400,9 @@ const Car: React.FC = () => {
                     type="submit"
                     sx={{
                       px: 9,
-                      backgroundColor: "#55B862",
+                      backgroundColor: styles.primaryColor,
                       ":hover": {
-                        bgcolor: "#55B862",
+                        bgcolor: styles.primaryColor,
                       },
                     }}
                   >
