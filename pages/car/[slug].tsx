@@ -28,20 +28,33 @@ import Banner from "@/components/Banner";
 import { policybanner } from "@/public/images";
 import { BANNER_IMAGE_TEXT } from "@/constants/text_constants";
 import { useTranslation } from "next-i18next";
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 const Car: React.FC = () => {
-  const {
-    handleSubmit,
-    control,
-    register,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data: any) => {
-    console.log(data);
-  };
   const router = useRouter();
   const slug = router.query.slug;
   const { t } = useTranslation();
+  // const [values, setValues] = useState("");
+  const [fuel,setFuel] = useState("")
+  const [brand,setBrand] = useState("")
+  const [model,setModel] = useState("")
+  const [type,setType] = useState("")
+  const [construction,setCOnstruction] = useState("")
+  const [registration,setRegistration] = useState("")
+  const [number1, setNumber] = useState("");
+  const validationSchema = Yup.object({
+    fuel: Yup.string().required("Required"),
+    brand: Yup.string().required("Required"),
+    model: Yup.string().required("Required"),
+    type: Yup.string().required("Required"),
+    construction: Yup.string().required("Required"),
+    registration: Yup.string().required("Required"),
+    number1: Yup.number().required("Required")
+    .max(157300, 'Maximum should be 157300')
+    .min(2000, 'Minimum should be 2000'),
+  })
+  console.log(number1,"number1")
   
   useEffect(()=>{
     if(slug=="YourCarDetails"){
@@ -49,13 +62,11 @@ const Car: React.FC = () => {
     }else if( slug=="YourCar"){
       setToggle(false)
     }
-  })
+  },[])
   const handleContinue = () => {
     router.push(ROUTE_PATHS.MOTOR);
   };
   const [toggle, setToggle] = useState(false);
-  
-  const [number, setNumber] = useState("");
   
   const theme = createTheme({
     typography: {
@@ -82,7 +93,33 @@ const Car: React.FC = () => {
           sx={{ mx: "auto", width: { xs: "90%", md: "100%" } }}
           border="0px solid green"
         >
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <Formik
+                    initialValues={{fuel:"",
+                                     brand:"",
+                                    model:"",
+                                  type:"",
+                                  construction:"",
+                                  registration:"",
+                                  number1:""}}
+                    validationSchema={validationSchema}
+                    validateOnChange={true}
+                    validateOnBlur={true}
+                    enableReinitialize={true}
+                    onSubmit={async (values) => {
+                      // values && postData(values)
+                      // scrollToTop()
+                      console.log(values)
+                    }}
+                  >
+                    {({
+                      values,
+                      errors,
+                      handleChange,
+                      handleBlur,
+                      touched,
+                      handleSubmit,
+                    }) => (
+          <form onSubmit={handleSubmit}>
             <Grid container border="0px solid pink">
               <Grid md={6} mdOffset={3} xs={12}>
                 <Link href={ROUTE_PATHS.SIMULATION}>
@@ -131,10 +168,15 @@ const Car: React.FC = () => {
                     <Dropdown
                       options={Vehicle_Details.Fuels}
                       label="fuel"
-                      register={register}
-                      required
-                      errors={errors}
+                      id="fuel"
+                      name="fuel"
+                      val={values.fuel}
+                      handleChange={handleChange}
+                      
                     />
+                    {errors.fuel && touched.fuel && (
+                      <Typography variant="body1" color="red" sx={{ mx:2, fontSize:"14px"}}>{errors.fuel}</Typography>
+                    )}
                   </Grid>
                 )}
               </Grid>
@@ -168,14 +210,19 @@ const Car: React.FC = () => {
                     <Dropdown
                       options={Vehicle_Details.Fuels}
                       label="brand"
-                      register={register}
-                      required
-                      errors={errors}
+                      id="brand"
+                      name="brand"
+                      val={values.brand}
+                      handleChange={handleChange}
+                      
                     />
+                    {errors.brand && touched.brand && (
+                      <Typography variant="body1" color="red" sx={{ mx:2, fontSize:"14px"}}>{errors.brand}</Typography>
+                    )}
                   </Grid>
                 )}
               </Grid>
-              <Grid
+             <Grid 
                 md={6}
                 mdOffset={3}
                 xs={12}
@@ -205,14 +252,19 @@ const Car: React.FC = () => {
                     <Dropdown
                       options={Vehicle_Details.Fuels}
                       label="model"
-                      register={register}
-                      required
-                      errors={errors}
+                      id="model"
+                      name="model"
+                      val={values.model}
+                      handleChange={handleChange}
+                      
                     />
+                    {errors.model && touched.model && (
+                      <Typography variant="body1" color="red" sx={{ mx:2, fontSize:"14px"}}>{errors.model}</Typography>
+                    )}
                   </Grid>
                 )}
               </Grid>
-              <Grid
+               <Grid
                 md={6}
                 mdOffset={3}
                 xs={12}
@@ -242,10 +294,15 @@ const Car: React.FC = () => {
                     <Dropdown
                       options={Vehicle_Details.Fuels}
                       label="type"
-                      register={register}
-                      required
-                      errors={errors}
+                      id="type"
+                      name="type"
+                      val={values.type}
+                      handleChange={handleChange}
+                      
                     />
+                    {errors.type && touched.type && (
+                      <Typography variant="body1" color="red" sx={{ mx:2, fontSize:"14px"}}>{errors.type}</Typography>
+                    )}
                   </Grid>
                 )}
               </Grid>
@@ -269,10 +326,15 @@ const Car: React.FC = () => {
                   <Dropdown
                     options={Vehicle_Details.Fuels}
                     label="construction"
-                    register={register}
-                    required
-                    errors={errors}
-                  />
+                      id="construction"
+                      name="construction"
+                      val={values.construction}
+                      handleChange={handleChange}
+                      
+                    />
+                    {errors.construction && touched.construction && (
+                      <Typography variant="body1" color="red" sx={{ mx:2, fontSize:"14px"}}>{errors.construction}</Typography>
+                    )}
                 </Grid>
               </Grid>
               <Grid
@@ -294,14 +356,19 @@ const Car: React.FC = () => {
                 <Grid md={6} xs={12}>
                   <Dropdown
                     options={Vehicle_Details.Years}
-                    label="years"
-                    register={register}
-                    required
-                    errors={errors}
-                  />
+                    label="registration"
+                      id="registration"
+                      name="registration"
+                      val={values.registration}
+                      handleChange={handleChange}
+                      
+                    />
+                    {errors.registration && touched.registration && (
+                      <Typography variant="body1" color="red" sx={{ mx:2, fontSize:"14px"}}>{errors.registration}</Typography>
+                    )}
                 </Grid>
               </Grid>
-              <Grid
+             <Grid
                 md={6}
                 mdOffset={3}
                 xs={12}
@@ -335,24 +402,23 @@ const Car: React.FC = () => {
                     variant="outlined"
                   >
                     <OutlinedInput
-                      // error={!number}
                       id="outlined-adornment-weight"
                       aria-describedby="outlined-weight-helper-text"
                       type="number"
                       sx={{ height: 32 }}
-                      inputProps={{
-                        "aria-label": "weight",
-                        min: 2000,
-                        max: 157300,
-                      }}
-                      value={number}
-                      onChange={(e) => setNumber(e.target.value)}
-                      // helperText="Some important text"
+                      // label="number1"
+                      // id="number1"
+                      name="number1"
+                      value={values.number1}
+                      onChange={handleChange}
                     />
+                    {errors.number1 && touched.number1 && (
+                      <Typography variant="body1" color="red" sx={{ mx:2, fontSize:"14px"}}>{errors.number1}</Typography>
+                    )}
                   </FormControl>
                 </Grid>
               </Grid>
-              <Grid
+               {/* <Grid
                 md={6}
                 mdOffset={3}
                 xs={12}
@@ -380,7 +446,7 @@ const Car: React.FC = () => {
                     <DatePicker slotProps={{ textField: { size: "small" } }} />
                   </LocalizationProvider>
                 </Grid>
-              </Grid>
+              </Grid> */}
               <Grid
                 md={6}
                 mdOffset={3}
@@ -412,6 +478,8 @@ const Car: React.FC = () => {
               </Grid>
             </Grid>
           </form>
+          )}
+            </Formik>
         </Box>
       </Box>
     </ThemeProvider>
