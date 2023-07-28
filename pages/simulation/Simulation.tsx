@@ -31,8 +31,7 @@ const Simulation: React.FC = () => {
             sx={{
               bgcolor: "initial",
               boxShadow: "none",
-            }}
-          >
+            }}>
             <CardMedia
               component="img"
               alt="habitation image"
@@ -69,8 +68,7 @@ const Simulation: React.FC = () => {
             // color="success"
             sx={{ px: 9, backgroundColor: "#55B862" }}
             disabled={!userInput}
-            href="/car/YourCarDetails"
-          >
+            href="/car/YourCarDetails">
             {SIMULATION_NEXT_BTN}
           </Button>
         </Grid>
@@ -79,8 +77,7 @@ const Simulation: React.FC = () => {
           <Button
             href="/car/YourCar"
             variant="outlined"
-            className={classes.simulation_Btn}
-          >
+            className={classes.simulation_Btn}>
             {SIMULATION_WITHOUT_CHASSIS_BTN}
           </Button>
         </Grid>

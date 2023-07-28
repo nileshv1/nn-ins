@@ -10,6 +10,7 @@ const Banner = (props: IBanner) => {
       <Image
         src={props.image}
         alt="Banner Image"
+        priority={true}
         className={classes.banner_image}
       />
       <span>{props.imageText}</span>
