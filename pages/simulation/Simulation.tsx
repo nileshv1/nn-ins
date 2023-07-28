@@ -78,7 +78,6 @@ const Simulation: React.FC = () => {
             // color="success"
             sx={{ px: 9, backgroundColor: "#55B862" }}
             disabled={!userInput}
-            // href={ROUTE_PATHS.CARDETAILS}
             onClick={handleClickNext}
           >
             {SIMULATION_NEXT_BTN}

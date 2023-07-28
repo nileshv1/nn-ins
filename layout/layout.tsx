@@ -1,8 +1,10 @@
-import Header from "@/components/Header";
 import React, { PropsWithChildren } from "react";
 import { Container } from "@mui/material";
 import classes from "../styles/page.module.scss";
 import Grid from "@mui/material/Unstable_Grid2";
+import dynamic from "next/dynamic";
+
+const Header = dynamic(() => import("@/components/Header"), { ssr: false });
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (
