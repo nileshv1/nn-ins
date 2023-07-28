@@ -9,17 +9,13 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CustomModal from "@/components/Modal/CustomModal";
 import classes from "../../styles/page.module.scss";
 import Link from "next/link";
-import {
-  SIMULATION_HEADER_TEXT,
-  SIMULATION_CONTENT_LABEL,
-  SIMULATION_NEXT_BTN,
-  SIMULATION_WITHOUT_CHASSIS_BTN,
-} from "@/constants/text_constants";
 import { ROUTE_PATHS } from "@/constants/constants";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 const Simulation: React.FC = () => {
   const router = useRouter();
+  const { t } = useTranslation();
   const [userInput, setUserInput] = React.useState("");
   const [open, setOpen] = React.useState(false);
 
@@ -28,7 +24,7 @@ const Simulation: React.FC = () => {
   };
 
   const handleClickNext = () => {
-    // router.push(ROUTE_PATHS.CARDETAILS);
+    router.push(ROUTE_PATHS.CARDETAILS);
     setUserInput("");
   };
 
@@ -49,9 +45,9 @@ const Simulation: React.FC = () => {
             />
             <CardContent>
               <Typography variant="h5" color="text.secondary">
-                {SIMULATION_HEADER_TEXT}
+                {t("simulationHeaderText")}
               </Typography>
-              {/* <hr className="horizontal-line" /> */}
+              <hr className={classes.horizontal_line} />
             </CardContent>
           </Card>
         </Grid>
@@ -59,7 +55,7 @@ const Simulation: React.FC = () => {
       <Grid container spacing={2} sx={{ px: 2 }}>
         <Grid item xs={12}>
           <InputLabel htmlFor="component-simple">
-            {SIMULATION_CONTENT_LABEL}
+            {t("simulationContentLabel")}
             <InfoOutlinedIcon onClick={() => setOpen((open) => !open)} />
             {open && <CustomModal open={open} setOpen={setOpen} />}
           </InputLabel>
@@ -74,28 +70,38 @@ const Simulation: React.FC = () => {
         </Grid>
 
         <Grid item xs={12} display="flex" justifyContent="flex-end">
-          <Link href={ROUTE_PATHS.CARDETAILS}>
           <Button
             variant="contained"
-            // color="success"
-            sx={{ px: 9, backgroundColor: "#55B862" }}
+            sx={{
+              px: 9,
+              backgroundColor: "#55B862",
+              ":hover": {
+                bgcolor: "#55B862",
+              },
+            }}
             disabled={!userInput}
             onClick={handleClickNext}
           >
-            {SIMULATION_NEXT_BTN}
+            {t("simulationNextBtn")}
           </Button>
-          </Link>
           .
         </Grid>
 
         <Grid item xs={12} display="flex" justifyContent="flex-end">
           <Link href={ROUTE_PATHS.YOURCAR}>
-          <Button
-            variant="outlined"
-            className={classes.simulation_Btn}
-          >
-            {SIMULATION_WITHOUT_CHASSIS_BTN}
-          </Button>
+            <Button
+              // onClick={handleClick}
+              variant="outlined"
+              sx={{
+                borderColor: "#55B862",
+                color: "#20ea3c",
+                ":hover": {
+                  borderColor: "#55B862",
+                },
+              }}
+            >
+              {t("simulationWithoutChassisBtn")}
+            </Button>
           </Link>
         </Grid>
       </Grid>
