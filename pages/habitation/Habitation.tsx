@@ -17,8 +17,16 @@ import {
   HABITATION_RENDEZVOUS_BTN,
   HABITATION_CONTACT_BTN,
 } from "@/constants/text_constants";
+import { ROUTE_PATHS } from "@/constants/constants";
+import { useRouter } from "next/router";
 
 const Habitation: React.FC = () => {
+  const router = useRouter();
+
+  const handleSimulation = () => {
+    router.push(ROUTE_PATHS.SIMULATION);
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
@@ -60,7 +68,7 @@ const Habitation: React.FC = () => {
               alt="Picture of the author"
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={5}>
             <Typography
               variant="body2"
               className={classes.text_style}
@@ -69,13 +77,13 @@ const Habitation: React.FC = () => {
               {HABITATION_SIMULATION_CONTENT}
             </Typography>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={5}>
             <Button
               variant="contained"
               size="medium"
               color="success"
               sx={{ width: 115 }}
-              href="/simulation"
+              onClick={handleSimulation}
             >
               {HABITATION_SIMULATION_BTN}
             </Button>
@@ -89,7 +97,7 @@ const Habitation: React.FC = () => {
               alt="Picture of the author"
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={5}>
             <Typography
               variant="subtitle1"
               className={classes.text_style}
@@ -98,7 +106,7 @@ const Habitation: React.FC = () => {
               {HABITATION_RENDEZVOUS_CONTENT}
             </Typography>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={5}>
             <Button
               variant="contained"
               size="medium"
@@ -117,7 +125,7 @@ const Habitation: React.FC = () => {
               alt="Picture of the author"
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={5}>
             <Typography
               variant="body2"
               className={classes.text_style}
@@ -126,7 +134,7 @@ const Habitation: React.FC = () => {
               {HABITATION_CONTACT_CONTENT}
             </Typography>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={5}>
             <Button variant="contained" size="medium" sx={{ width: 115 }}>
               {HABITATION_CONTACT_BTN}
             </Button>
