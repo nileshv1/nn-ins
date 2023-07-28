@@ -14,13 +14,21 @@ import {
   SIMULATION_NEXT_BTN,
   SIMULATION_WITHOUT_CHASSIS_BTN,
 } from "@/constants/text_constants";
+import { ROUTE_PATHS } from "@/constants/constants";
+import { useRouter } from "next/router";
 
 const Simulation: React.FC = () => {
+  const router = useRouter();
   const [userInput, setUserInput] = React.useState("");
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (e: any) => {
     setUserInput(e.target.value);
+  };
+
+  const handleClickNext = () => {
+    router.push(ROUTE_PATHS.CARDETAILS);
+    setUserInput("");
   };
 
   return (
@@ -59,6 +67,7 @@ const Simulation: React.FC = () => {
             variant="outlined"
             placeholder="ABCDEFG1234567890"
             sx={{ pt: 1 }}
+            value={userInput}
             onChange={handleChange}
           />
         </Grid>
@@ -69,15 +78,17 @@ const Simulation: React.FC = () => {
             // color="success"
             sx={{ px: 9, backgroundColor: "#55B862" }}
             disabled={!userInput}
-            href="/car/YourCarDetails"
+            // href={ROUTE_PATHS.CARDETAILS}
+            onClick={handleClickNext}
           >
             {SIMULATION_NEXT_BTN}
           </Button>
+          .
         </Grid>
 
         <Grid item xs={12} display="flex" justifyContent="flex-end">
           <Button
-            href="/car/YourCar"
+            href={ROUTE_PATHS.YOURCAR}
             variant="outlined"
             className={classes.simulation_Btn}
           >
