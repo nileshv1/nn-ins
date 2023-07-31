@@ -86,9 +86,7 @@ const Habitation: React.FC = () => {
                 variant="contained"
                 color="success"
                 sx={{
-                  size: { xs: "small", md: "medium" },
-                  width: { xs: "150", md: "200" },
-                  height: { xs: "100", md: "250" },
+                  width: 140,
                 }}
                 onClick={handleSimulation}
               >
@@ -131,11 +129,8 @@ const Habitation: React.FC = () => {
                 variant="contained"
                 color="warning"
                 sx={{
-                  size: { xs: "small", md: "medium" },
-                  width: { xs: "150", md: "200" },
-                  height: { xs: "100", md: "250" },
+                  width: 140,
                 }}
-                onClick={handleSimulation}
               >
                 {t("habitationRendezvousBtn")}
               </Button>
@@ -174,11 +169,8 @@ const Habitation: React.FC = () => {
               <Button
                 variant="contained"
                 sx={{
-                  size: { xs: "small", md: "medium" },
-                  width: { xs: "150", md: "200" },
-                  height: { xs: "100", md: "250" },
+                  width: 140,
                 }}
-                onClick={handleSimulation}
               >
                 {t("habitationContactBtn")}
               </Button>
