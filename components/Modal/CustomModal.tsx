@@ -45,12 +45,14 @@ const CustomModal: React.FC<CustomModalProps> = ({ open, setOpen }) => {
             {t("modalTitle")}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <p>{t("modalContentP1")}</p>
-            <p>{t("modalContentP2")}</p>
-            <p>{t("modalContentP3")}</p> <p> {t("modalContentP4")} </p>
-            <p>{t("modalContentP5")}</p>
-            <p>{t("modalContentP6")}</p>
+            {" "}
           </Typography>
+          <Typography>{t("modalContentP1")}</Typography>
+          <Typography>{t("modalContentP2")}</Typography>
+          <Typography>{t("modalContentP3")}</Typography>
+          <Typography>{t("modalContentP4")}</Typography>
+          <Typography>{t("modalContentP5")}</Typography>
+          <Typography>{t("modalContentP6")}</Typography>
         </Box>
       </Modal>
     </div>
