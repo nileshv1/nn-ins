@@ -56,86 +56,133 @@ const Habitation: React.FC = () => {
           <Grid item xs={2}>
             <Image
               src="/images/calculation.png"
-              width={30}
-              height={30}
+              width={50}
+              height={50}
               alt="Picture of the author"
             />
           </Grid>
-          <Grid item xs={5}>
-            <Typography
-              variant="body2"
-              className={classes.text_style}
-              sx={{ fontSize: 12 }}
-            >
-              {t("habitationSimulationContent")}
-            </Typography>
-          </Grid>
-          <Grid item xs={5}>
-            <Button
-              variant="contained"
-              color="success"
-              sx={{ size: { xs: "small", md: "medium", width: 110 } }}
-              onClick={handleSimulation}
-            >
-              {t("habitationSimulationBtn")}
-            </Button>
+          <Grid
+            container
+            pl={8}
+            xs={10}
+            md={10}
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", md: "row" },
+              alignItems: { xs: "start", md: "center" },
+            }}
+          >
+            <Grid item xs={12} md={6}>
+              <Typography
+                variant="body2"
+                className={classes.text_style}
+                sx={{ fontSize: 12 }}
+              >
+                {t("habitationSimulationContent")}
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Button
+                variant="contained"
+                color="success"
+                sx={{
+                  size: { xs: "small", md: "medium" },
+                  width: { xs: "150", md: "200" },
+                  height: { xs: "100", md: "250" },
+                }}
+                onClick={handleSimulation}
+              >
+                {t("habitationSimulationBtn")}
+              </Button>
+            </Grid>
           </Grid>
 
           <Grid item xs={2}>
             <Image
               src="/images/calendar.png"
-              width={30}
-              height={30}
+              width={50}
+              height={50}
               alt="Picture of the author"
             />
           </Grid>
-          <Grid item xs={5}>
-            <Typography
-              variant="subtitle1"
-              className={classes.text_style}
-              sx={{ fontSize: 12 }}
-            >
-              {t("habitationRendezvousContent")}
-            </Typography>
-          </Grid>
-          <Grid item xs={5}>
-            <Button
-              variant="contained"
-              size="medium"
-              color="warning"
-              sx={{ size: { xs: "small", md: "medium", width: 110 } }}
-            >
-              {t("habitationRendezvousBtn")}
-            </Button>
+
+          <Grid
+            container
+            pl={8}
+            xs={10}
+            md={10}
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", md: "row" },
+              alignItems: { xs: "start", md: "center" },
+            }}
+          >
+            <Grid item xs={12} md={6}>
+              <Typography
+                variant="body2"
+                className={classes.text_style}
+                sx={{ fontSize: 12 }}
+              >
+                {t("habitationRendezvousContent")}
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Button
+                variant="contained"
+                color="warning"
+                sx={{
+                  size: { xs: "small", md: "medium" },
+                  width: { xs: "150", md: "200" },
+                  height: { xs: "100", md: "250" },
+                }}
+                onClick={handleSimulation}
+              >
+                {t("habitationRendezvousBtn")}
+              </Button>
+            </Grid>
           </Grid>
 
           <Grid item xs={2}>
             <Image
               src="/images/mail.png"
-              width={30}
-              height={30}
+              width={50}
+              height={50}
               alt="Picture of the author"
             />
           </Grid>
-          <Grid item xs={5}>
-            <Typography
-              variant="body2"
-              className={classes.text_style}
-              sx={{ fontSize: 12 }}
-            >
-              {t("habitationContactContent")}
-            </Typography>
-          </Grid>
-          <Grid item xs={5}>
-            <Button
-              variant="contained"
-              size="medium"
-              sx={{
-                size: { xs: "small", md: "medium", width: 110 },
-              }}
-            >
-              {t("habitationContactBtn")}
-            </Button>
+          <Grid
+            container
+            pl={8}
+            xs={10}
+            md={10}
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", md: "row" },
+              alignItems: { xs: "start", md: "center" },
+            }}
+          >
+            <Grid item xs={12} md={6}>
+              <Typography
+                variant="body2"
+                className={classes.text_style}
+                sx={{ fontSize: 12 }}
+              >
+                {t("habitationContactContent")}
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Button
+                variant="contained"
+                sx={{
+                  size: { xs: "small", md: "medium" },
+                  width: { xs: "150", md: "200" },
+                  height: { xs: "100", md: "250" },
+                }}
+                onClick={handleSimulation}
+              >
+                {t("habitationContactBtn")}
+              </Button>
+            </Grid>
           </Grid>
         </Grid>
       </Box>
