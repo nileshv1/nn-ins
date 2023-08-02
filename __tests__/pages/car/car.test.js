@@ -1,13 +1,17 @@
 import { render, screen } from "@testing-library/react";
 import Car from "../../../pages/car/[slug]";
 import "@testing-library/jest-dom";
+import { useRouter } from "next/router";
 
 // Mock the useRouter hook from next/router
+// jest.mock("next/router", () => ({
+//     useRouter: () => ({
+//         query: { slug: "YourCar" }, // Mock the query.slug value here as needed
+//     }),
+// }));
 jest.mock("next/router", () => ({
-    useRouter: () => ({
-        query: { slug: "YourCar" }, // Mock the query.slug value here as needed
-    }),
-}));
+    useRouter: jest.fn(),
+  }));
 
 // Mock the useTranslation hook from next-i18next
 jest.mock("next-i18next", () => ({
@@ -18,6 +22,7 @@ jest.mock("next-i18next", () => ({
 
 describe("renders car page", () => {
     test("renders using getByText", () => {
+        useRouter.mockReturnValue({ query: { slug: "YourCar" } });
         render(<Car />);
         // Use a regular expression with 'i' flag for case-insensitive match
         const fuelLabel = screen.getByText(/Fuel/i);
@@ -37,18 +42,18 @@ describe("renders car page", () => {
     })
 
     test("render by getByAltText", () => {
+        useRouter.mockReturnValue({ query: { slug: "YourCar" } });
         render(<Car />);
         const inputElement = screen.getByAltText("Man Driving Car Banner")
         expect(inputElement).toBeInTheDocument();
     })
 
-    // test("render by getByRole", () => {
-    //     render(<Car />);
-    //     const inputField = screen.getByRole("textbox", {
-    //          name: "number1"
-    //          });
-    //     expect(inputField).toBeInTheDocument();
-    // })
+    test("render by getByRole", () => {
+        useRouter.mockReturnValue({ query: { slug: "YourCar" } });
+        render(<Car />);
+        const backButton = screen.getByRole("link");
+        expect(backButton).toBeInTheDocument();
+    })
 
 });
 
