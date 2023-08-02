@@ -35,11 +35,11 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
         onChange={handleChange}
         renderValue={(selected) => {
           if (selected.length === 0) {
-            console.log("Hi")
+            // console.log("Hi")
             return <em>Select</em>;
             
           }
-          console.log("Hello")
+          // console.log("Hello")
           return selected;
         }}
         displayEmpty     
