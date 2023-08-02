@@ -89,7 +89,7 @@ const Car: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <Box border="0px solid green">
-        <Banner image={policybanner} imageText="" />
+        <Banner image={policybanner} imageText="" alt="Man Driving Car Banner"/>
         <Box
           sx={{ mx: "auto", width: { xs: "90%", md: "100%" } }}
           border="0px solid green"

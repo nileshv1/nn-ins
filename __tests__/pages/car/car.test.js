@@ -17,7 +17,7 @@ jest.mock("next-i18next", () => ({
 }));
 
 describe("renders car page", () => {
-    test("renders the labels", () => {
+    test("renders using getByText", () => {
         render(<Car />);
         // Use a regular expression with 'i' flag for case-insensitive match
         const fuelLabel = screen.getByText(/Fuel/i);
@@ -35,6 +35,20 @@ describe("renders car page", () => {
         const invoiceLabel = screen.getByText(/invoiceValue/i);
         expect(invoiceLabel).toBeInTheDocument();
     })
+
+    test("render by getByAltText", () => {
+        render(<Car />);
+        const inputElement = screen.getByAltText("Man Driving Car Banner")
+        expect(inputElement).toBeInTheDocument();
+    })
+
+    // test("render by getByRole", () => {
+    //     render(<Car />);
+    //     const inputField = screen.getByRole("textbox", {
+    //          name: "number1"
+    //          });
+    //     expect(inputField).toBeInTheDocument();
+    // })
 
 });
 
