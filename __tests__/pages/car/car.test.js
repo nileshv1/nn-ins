@@ -1,5 +1,6 @@
-import { render, screen } from "@testing-library/react";
+import { logRoles, render, screen } from "@testing-library/react";
 import Car from "../../../pages/car/[slug]";
+import Dropdown from "@/components/dropdown/dropdown";
 import "@testing-library/jest-dom";
 import { useRouter } from "next/router";
 
@@ -11,7 +12,7 @@ import { useRouter } from "next/router";
 // }));
 jest.mock("next/router", () => ({
     useRouter: jest.fn(),
-  }));
+}));
 
 // Mock the useTranslation hook from next-i18next
 jest.mock("next-i18next", () => ({
@@ -23,7 +24,8 @@ jest.mock("next-i18next", () => ({
 describe("renders car page", () => {
     test("renders using getByText", () => {
         useRouter.mockReturnValue({ query: { slug: "YourCar" } });
-        render(<Car />);
+        const view = render(<Car />);
+        logRoles(view.container)
         // Use a regular expression with 'i' flag for case-insensitive match
         const fuelLabel = screen.getByText(/Fuel/i);
         expect(fuelLabel).toBeInTheDocument();
@@ -56,4 +58,44 @@ describe("renders car page", () => {
     })
 
 });
+
+describe("dropdown", () => {
+    const options = [
+        { label: "Essence", value: "Essence" },
+        { label: "Diesel", value: "Diesel" },
+        { label: "LPG", value: "LPG" },
+        {
+            label: "HYBRIDE (Essence + electrique)",
+            value: "HYBRIDE (Essence + electrique)",
+        },
+        {
+            label: "HYBRIDE (Diesel + electrique)",
+            value: "HYBRIDE (Diesel + electrique)",
+        },
+        { label: "100% Electrique", value: "100% Electrique" },
+    ]
+    test("testing dropdown", () => {
+        const view = render(
+            <Dropdown
+                options={options}
+                label="Select an option"
+                val=""
+                id="my-dropdown"
+                name="my-dropdown"
+                handleChange={() => { }}
+            />
+        )
+        logRoles(view.container);
+
+        //Check if dropdown is render correctly
+        const selectElement = screen.getByLabelText("Select");
+        expect(selectElement).toBeInTheDocument();
+
+        // Check if the options are rendered correctly
+        // for (const option of options) {
+        //     const menuItem = screen.getByText(option.label);
+        //     expect(menuItem).toBeInTheDocument();
+        // }
+    })
+})
 
