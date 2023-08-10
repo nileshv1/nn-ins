@@ -8,7 +8,7 @@ import React from "react";
 import classes from "../../styles/page.module.scss";
 // import dynamic from "next/dynamic";
 import Banner from "@/components/Banner";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import styles from "../../styles/variables.module.scss";
 
 // const Banner = dynamic(() => import("@/components/Banner"), { ssr: true });
@@ -21,15 +21,15 @@ const Home: React.FC = () => {
     router.push(ROUTE_PATHS.HABITATION);
   };
   return (
-    <Box>
+    <Grid>
       <Banner image={contenthome} imageText={t("bannerImageText")} />
-      <Box sx={{ py: 4 }}>
+      <Grid item sx={{ py: 4 }}>
         <Box className={classes.page_header_text}>
           {t("bannerImageText")}
           <hr className={classes.horizontal_line} />
         </Box>
-      </Box>
-      <Box
+      </Grid>
+      <Grid item
         sx={{
           backgroundColor: styles.homebgColor,
         }}
@@ -55,8 +55,8 @@ const Home: React.FC = () => {
             />
           </a>
         </Box>
-      </Box>
-    </Box>
+      </Grid>
+    </Grid>
   );
 };
 
