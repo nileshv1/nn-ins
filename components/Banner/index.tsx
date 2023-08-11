@@ -9,7 +9,7 @@ const Banner = (props: IBanner) => {
     <Grid container className={classes.banner_image_container}>
       <Image
         src={props.image}
-        alt="Banner Image"
+        alt={props.alt}
         priority={true}
         className={classes.banner_image}
       />
