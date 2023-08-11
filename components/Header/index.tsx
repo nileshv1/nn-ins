@@ -29,9 +29,9 @@ const Header: React.FC = () => {
         />
       </Grid>
       <Grid item>
-        <Box className={classes.header_profile}>{t("headerProfileText")}</Box>
-        <Box className={classes.header_company_info}>
-          <Box>{t("headerCompanyText")}</Box>
+        <Grid className={classes.header_profile}>{t("headerProfileText")}</Grid>
+        <Grid className={classes.header_company_info}>
+          <Grid>{t("headerCompanyText")}</Grid>
           <Image
             src={nngroup}
             width={30}
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
             alt="Company Logo"
             priority={true}
           />
-        </Box>
+        </Grid>
       </Grid>
     </Grid>
   );

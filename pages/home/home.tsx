@@ -22,20 +22,20 @@ const Home: React.FC = () => {
   };
   return (
     <Grid>
-      <Banner image={contenthome} imageText={t("bannerImageText")} />
+      <Banner image={contenthome} imageText={t("bannerImageText")} alt={t("bannerImageText")}/>
       <Grid item sx={{ py: 4 }}>
-        <Box className={classes.page_header_text}>
+        <Grid className={classes.page_header_text}>
           {t("bannerImageText")}
           <hr className={classes.horizontal_line} />
-        </Box>
+        </Grid>
       </Grid>
       <Grid item
         sx={{
           backgroundColor: styles.homebgColor,
         }}
       >
-        <Box className={classes.header_text}>{t("headerInsurance")}</Box>
-        <Box className={classes.home_content}>
+        <Grid className={classes.header_text}>{t("headerInsurance")}</Grid>
+        <Grid className={classes.home_content}>
           <a onClick={handleContinue} className={classes.cursor}>
             <Image
               src={assurance_auto}
@@ -54,7 +54,7 @@ const Home: React.FC = () => {
               priority={true}
             />
           </a>
-        </Box>
+        </Grid>
       </Grid>
     </Grid>
   );
