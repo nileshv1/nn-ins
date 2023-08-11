@@ -83,13 +83,13 @@ const Car: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box border="0px solid green">
+      <Grid border="0px solid green">
         <Banner
           image={policybanner}
           imageText=""
           alt="Man Driving Car Banner"
         />
-        <Box
+        <Grid
           sx={{ mx: "auto", width: { xs: "90%", md: "100%" } }}
           border="0px solid green"
         >
@@ -435,8 +435,8 @@ const Car: React.FC = () => {
               </Grid>
             </Grid>
           </form>
-        </Box>
-      </Box>
+        </Grid>
+      </Grid>
     </ThemeProvider>
   );
 };
