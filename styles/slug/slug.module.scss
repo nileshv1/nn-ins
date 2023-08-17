@@ -1,0 +1,36 @@
+@use "../variables.module.scss";
+
+
+.infoIcon{
+    // position:absolute;
+    // top:-8px; 
+    font-size: 1.4rem;
+    color:#00ad73;
+    cursor:pointer;
+}
+.detailsInfoBlur{
+    opacity: 0.08;
+    // background-color:red; 
+    pointer-events: none 
+}
+.detailsInfo{
+    opacity: 0;
+}
+.popup1{
+    position: fixed;
+    // left:34%;
+    // top:26%;
+    display: block;
+    // width: 21rem;
+    padding:1rem 0rem;
+     border:0px solid #00ad73; 
+}
+.popupHide {
+    display:none;
+}
+.close{
+    font-size: 2rem;
+    color: #00ad73;
+    cursor: pointer;
+    margin-left: 15rem;
+}

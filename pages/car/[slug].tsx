@@ -4,6 +4,8 @@ import { Button, Container, MenuItem, Select } from "@mui/material";
 import { ROUTE_PATHS } from "@/constants/constants";
 import styles from "../../styles/variables.module.scss";
 import Link from "next/link";
+import InfoIcon from '@mui/icons-material/Info';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import {
   Paper,
   Box,
@@ -30,6 +32,7 @@ import { useTranslation } from "next-i18next";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import classes from "../../styles/slug/slug.module.scss";
 
 const schema = yup.object().shape({
   fuel: yup.string().required("Fuel is required"),
@@ -70,6 +73,11 @@ const Car: React.FC = () => {
     // console.log(data);
   };
   const [toggle, setToggle] = useState(false);
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(!open);
+    console.log(open)
+  };
 
   const theme = createTheme({
     typography: {
@@ -78,6 +86,9 @@ const Car: React.FC = () => {
         fontWeight: 550,
       },
       h6:{
+        fontWeight: "bold"
+      },
+      h5:{
         fontWeight: "bold"
       }
     },
@@ -91,12 +102,24 @@ const Car: React.FC = () => {
           imageText=""
           alt="Man Driving Car Banner"
         />
-        <Box
+        <Grid
           sx={{ mx: "auto", width: { xs: "90%", md: "100%" } }}
           border="0px solid green"
+          container
+          justifyContent="center"
+          alignItems="start"
         >
+          <Grid 
+          xs={10} sm={5} md={4} lg={3} 
+          className={open ? classes.popup1 : classes.popupHide}
+          sx={{ sm:{mb:8}, md:{mb:12}}}>
+          <HighlightOffIcon className={classes.close} onClick={handleClick}/>
+          <Typography variant="h5">{t("invoiceValuePopup")}</Typography>
+          <Typography variant="body1">{t("popup1")}</Typography>
+          <Typography variant="body1">{t("popup2")}</Typography>
+          </Grid>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Grid container border="0px solid pink">
+            <Grid container border="0px solid pink" className={open ? classes.detailsInfoBlur : ""}>
               <Grid md={6} mdOffset={1} xs={12}>
                 <Link href={ROUTE_PATHS.SIMULATION}>
                   <Button
@@ -335,7 +358,9 @@ const Car: React.FC = () => {
                 border="0px solid orange"
               >
                 <Grid md={7} xs={12}>
-                  <Typography variant="body1">{t("invoiceValue")}</Typography>
+                  <Typography variant="body1">{t("invoiceValue")}
+                    <InfoIcon className={classes.infoIcon} onClick={handleClick}/>
+                  </Typography>
                   <Typography variant="body2" gutterBottom>
                     {t("discounts")}
                   </Typography>
@@ -439,7 +464,7 @@ const Car: React.FC = () => {
               </Grid>
             </Grid>
           </form>
-        </Box>
+        </Grid>
       </Box>
     </ThemeProvider>
   );
