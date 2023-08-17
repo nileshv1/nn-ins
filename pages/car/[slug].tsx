@@ -65,10 +65,9 @@ const Car: React.FC = () => {
       setToggle(false);
     }
   }, []);
-  const onSubmit = (data) => {
-    console.log(data);
-    alert("Thanks!! You have fill the form.")
-    
+  const onSubmit = (data:any) => {
+    router.push(ROUTE_PATHS.FINAL);
+    // console.log(data);
   };
   const [toggle, setToggle] = useState(false);
 
@@ -78,6 +77,9 @@ const Car: React.FC = () => {
         fontSize: 16,
         fontWeight: 550,
       },
+      h6:{
+        fontWeight: "bold"
+      }
     },
   });
 
@@ -95,7 +97,7 @@ const Car: React.FC = () => {
         >
           <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container border="0px solid pink">
-              <Grid md={6} mdOffset={3} xs={12}>
+              <Grid md={6} mdOffset={1} xs={12}>
                 <Link href={ROUTE_PATHS.SIMULATION}>
                   <Button
                     startIcon={<ArrowBackIosIcon />}
@@ -108,7 +110,7 @@ const Car: React.FC = () => {
                   </Button>
                 </Link>
               </Grid>
-              <Grid md={6} mdOffset={3} xs={12} sx={{ mb: 4 }}>
+              <Grid md={6} mdOffset={1} xs={12} sx={{ mb: 4 }}>
                 <Typography variant="h6">{t("yourCar")} :</Typography>
                 <Divider
                   color={styles.primaryColor}
@@ -116,8 +118,8 @@ const Car: React.FC = () => {
                 />
               </Grid>
               <Grid
-                md={6}
-                mdOffset={3}
+                md={10}
+                mdOffset={1}
                 xs={12}
                 container
                 sx={{ mb: 2 }}
@@ -154,8 +156,8 @@ const Car: React.FC = () => {
                 )}
               </Grid>
               <Grid
-                md={6}
-                mdOffset={3}
+                md={10}
+                mdOffset={1}
                 xs={12}
                 container
                 sx={{ mb: 2 }}
@@ -192,8 +194,8 @@ const Car: React.FC = () => {
                 )}
               </Grid>
               <Grid
-                md={6}
-                mdOffset={3}
+                md={10}
+                mdOffset={1}
                 xs={12}
                 container
                 sx={{ mb: 2 }}
@@ -230,8 +232,8 @@ const Car: React.FC = () => {
                 )}
               </Grid>
               <Grid
-                md={6}
-                mdOffset={3}
+                md={10}
+                mdOffset={1}
                 xs={12}
                 container
                 sx={{ mb: 2 }}
@@ -268,8 +270,8 @@ const Car: React.FC = () => {
                 )}
               </Grid>
               <Grid
-                md={6}
-                mdOffset={3}
+                md={10}
+                mdOffset={1}
                 xs={12}
                 container
                 sx={{ mb: 2 }}
@@ -295,8 +297,8 @@ const Car: React.FC = () => {
                 </Grid>
               </Grid>
               <Grid
-                md={6}
-                mdOffset={3}
+                md={10}
+                mdOffset={1}
                 xs={12}
                 container
                 sx={{ mb: 2 }}
@@ -322,8 +324,8 @@ const Car: React.FC = () => {
                 </Grid>
               </Grid>
               <Grid
-                md={6}
-                mdOffset={3}
+                md={10}
+                mdOffset={1}
                 xs={12}
                 container
                 sx={{ mb: 2 }}
@@ -415,7 +417,8 @@ const Car: React.FC = () => {
                 alignItems="center"
                 border="0px solid orange"
               >
-                <Grid md={8} mdOffset={7} xs={12}>
+                <Grid md={10} mdOffset={12} xs={12}>
+               
                   <Button
                     variant="contained"
                     color="primary"
@@ -431,6 +434,7 @@ const Car: React.FC = () => {
                   >
                     {t("next")}
                   </Button>
+                 
                 </Grid>
               </Grid>
             </Grid>

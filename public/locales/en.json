@@ -40,5 +40,11 @@
   "esscence": "Esscence",
   "volkswagen": "Volkswagen",
   "golf": "Golf Vill",
-  "tsi": "tsi 110"
+  "tsi": "tsi 110",
+  "assistance":"Driver assistance systems",
+  "radioq1":"At least 2 driver assistance systems",
+  "kilometers":"Kilometers per year",
+  "radioq2":"how many km per year do you drive on average?",
+  "assistancerror":"Assistance is required",
+  "kilometerserror":"Kilometers per year is required"
 }
