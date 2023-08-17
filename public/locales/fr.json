@@ -40,5 +40,11 @@
   "essence": "Essence",
   "volkswagen": "Volkswagen",
   "golf": "Villa Golf",
-  "tsi": "tsi 110"
+  "tsi": "tsi 110",
+  "assistance":"Systèmes d'aide à la conduite",
+  "radioq1":"Au moins 2 systèmes d'assistance à la conduite",
+  "kilometers":"kilomètres",
+  "radioq2":"combien de km par an parcourez-vous en moyenne ?",
+  "assistancerror":"Une aide est requise",
+  "kilometerserror":"Kilomètres par an est requis"
 }

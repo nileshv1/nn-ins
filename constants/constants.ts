@@ -8,6 +8,7 @@ export enum ROUTE_PATHS {
   SIMULATION = "/simulation",
   CARDETAILS = "/car/YourCarDetails",
   YOURCAR = "/car/YourCar",
+  FINAL="/final"
 }
 
 export const Vehicle_Details = {
