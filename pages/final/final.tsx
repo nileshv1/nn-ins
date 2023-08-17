@@ -87,7 +87,7 @@ const Find: React.FC = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container border="0px solid pink">
               <Grid md={10} mdOffset={1} xs={12}>
-                <Link href={ROUTE_PATHS.CARDETAILS}>
+                <Link href={ROUTE_PATHS.YOURCAR}>
                   <Button
                     startIcon={<ArrowBackIosIcon />}
                     sx={{
