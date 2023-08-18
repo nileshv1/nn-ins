@@ -46,5 +46,8 @@
   "kilometers":"kilomètres",
   "radioq2":"combien de km par an parcourez-vous en moyenne ?",
   "assistancerror":"Une aide est requise",
-  "kilometerserror":"Kilomètres par an est requis"
+  "kilometerserror":"Kilomètres par an est requis",
+  "invoiceValuePopup":"Valeur factureInvoice value",
+  "popup1":"Ces informations peuvent être trouvées sur le bon de commande ou le bon de commande ou le contrat de vente que vous avez reçu lorsque vous avez acheté votre voiture.",
+  "popup2":"Si vous ne disposez plus de ces documents, vous pouvez consulter vos relevés de compte pour connaître le montant et la date du paiement."
 }

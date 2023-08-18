@@ -46,5 +46,8 @@
   "kilometers":"Kilometers per year",
   "radioq2":"how many km per year do you drive on average?",
   "assistancerror":"Assistance is required",
-  "kilometerserror":"Kilometers per year is required"
+  "kilometerserror":"Kilometers per year is required",
+  "invoiceValuePopup":"Invoice value",
+ "popup1":"This information can be found on the invoice order form or sales purchase order or sales contract you received when you bought your car",
+ "popup2":"If you no longer have these documents you can check your account statements to find the amount and date of payment."
 }
