@@ -96,7 +96,7 @@ const Car: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid border="0px solid green">
+      <Grid container border="0px solid green">
         <Banner
           image={policybanner}
           imageText=""
