@@ -1,5 +1,5 @@
 import { headerlogo, nngroup } from "@/public/images";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -16,8 +16,8 @@ const Header: React.FC = () => {
   };
 
   return (
-    <Box className={classes.header_container}>
-      <Box>
+    <Grid container className={classes.header_container}>
+      <Grid item>
         <Image
           src={headerlogo}
           width={50}
@@ -27,11 +27,11 @@ const Header: React.FC = () => {
           onClick={handleContinue}
           className={page_classes.cursor}
         />
-      </Box>
-      <Box>
-        <Box className={classes.header_profile}>{t("headerProfileText")}</Box>
-        <Box className={classes.header_company_info}>
-          <Box>{t("headerCompanyText")}</Box>
+      </Grid>
+      <Grid item>
+        <Grid className={classes.header_profile}>{t("headerProfileText")}</Grid>
+        <Grid className={classes.header_company_info}>
+          <Grid>{t("headerCompanyText")}</Grid>
           <Image
             src={nngroup}
             width={30}
@@ -39,9 +39,9 @@ const Header: React.FC = () => {
             alt="Company Logo"
             priority={true}
           />
-        </Box>
-      </Box>
-    </Box>
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 

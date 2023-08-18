@@ -21,7 +21,7 @@ const Habitation: React.FC = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Grid sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Card
@@ -44,7 +44,7 @@ const Habitation: React.FC = () => {
         </Grid>
       </Grid>
 
-      <Box className={classes.info_section}>
+      <Grid className={classes.info_section}>
         <Grid container spacing={2} alignItems="center" sx={{ px: 2 }}>
           <Grid item xs={12}>
             <Typography variant="body2" className={classes.text_style}>
@@ -177,8 +177,8 @@ const Habitation: React.FC = () => {
             </Grid>
           </Grid>
         </Grid>
-      </Box>
-    </Box>
+      </Grid>
+    </Grid>
   );
 };
 

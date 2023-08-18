@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
 import { IBanner } from "./IBanner";
 import Image from "next/image";
@@ -6,7 +6,7 @@ import classes from "../../styles/page.module.scss";
 
 const Banner = (props: IBanner) => {
   return (
-    <Box className={classes.banner_image_container}>
+    <Grid container className={classes.banner_image_container}>
       <Image
         src={props.image}
         alt={props.alt}
@@ -14,7 +14,7 @@ const Banner = (props: IBanner) => {
         className={classes.banner_image}
       />
       <span>{props.imageText}</span>
-    </Box>
+    </Grid>
   );
 };
 

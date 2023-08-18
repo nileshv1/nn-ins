@@ -8,7 +8,7 @@ import React from "react";
 import classes from "../../styles/page.module.scss";
 // import dynamic from "next/dynamic";
 import Banner from "@/components/Banner";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import styles from "../../styles/variables.module.scss";
 
 // const Banner = dynamic(() => import("@/components/Banner"), { ssr: true });
@@ -21,21 +21,21 @@ const Home: React.FC = () => {
     router.push(ROUTE_PATHS.HABITATION);
   };
   return (
-    <Box>
-      <Banner image={contenthome} imageText={t("bannerImageText")} />
-      <Box sx={{ py: 4 }}>
-        <Box className={classes.page_header_text}>
+    <Grid>
+      <Banner image={contenthome} imageText={t("bannerImageText")} alt={t("bannerImageText")}/>
+      <Grid item sx={{ py: 4 }}>
+        <Grid className={classes.page_header_text}>
           {t("bannerImageText")}
           <hr className={classes.horizontal_line} />
-        </Box>
-      </Box>
-      <Box
+        </Grid>
+      </Grid>
+      <Grid item
         sx={{
           backgroundColor: styles.homebgColor,
         }}
       >
-        <Box className={classes.header_text}>{t("headerInsurance")}</Box>
-        <Box className={classes.home_content}>
+        <Grid className={classes.header_text}>{t("headerInsurance")}</Grid>
+        <Grid className={classes.home_content}>
           <a onClick={handleContinue} className={classes.cursor}>
             <Image
               src={assurance_auto}
@@ -54,9 +54,9 @@ const Home: React.FC = () => {
               priority={true}
             />
           </a>
-        </Box>
-      </Box>
-    </Box>
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 

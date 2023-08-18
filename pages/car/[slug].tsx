@@ -7,8 +7,6 @@ import Link from "next/link";
 import InfoIcon from '@mui/icons-material/Info';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import {
-  Paper,
-  Box,
   Typography,
   FormControl,
   OutlinedInput,
@@ -20,9 +18,6 @@ import Grid from "@mui/material/Unstable_Grid2";
 import { Vehicle_Details } from "../../constants/constants";
 import { useState } from "react";
 import Dropdown from "@/components/dropdown/dropdown";
-import { LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Banner from "@/components/Banner";
@@ -101,7 +96,7 @@ const Car: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box border="0px solid green">
+      <Grid border="0px solid green">
         <Banner
           image={policybanner}
           imageText=""
@@ -470,7 +465,7 @@ const Car: React.FC = () => {
             </Grid>
           </form>
         </Grid>
-      </Box>
+      </Grid>
     </ThemeProvider>
   );
 };
