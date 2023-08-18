@@ -11,6 +11,7 @@ import Banner from "@/components/Banner";
 import { Box } from "@mui/material";
 import styles from "../../styles/variables.module.scss";
 import { fetchAllUsers } from "../api/user/user";
+import { signIn, useSession } from "next-auth/react";
 
 // const Banner = dynamic(() => import("@/components/Banner"), { ssr: true });
 
@@ -24,17 +25,24 @@ const Home: React.FC = () => {
 
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(Boolean);
+  const { data: session } = useSession();
 
   useEffect(() => {
     try {
       fetchAllUsers().then((data) => {
         setUsers(data.results);
+        console.log(data.results);
+        console.log(session);
       });
     } catch (err) {
       setError(true);
       console.log(err);
     }
-  }, []);
+  }, [session]);
+
+  if (!session) {
+    return <p>Access Denied</p>;
+  }
 
   return (
     <Box>

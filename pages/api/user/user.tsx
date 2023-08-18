@@ -26,3 +26,4 @@ export const fetchAllUsers = async () => {
   if (resp.status === 200) return resp.json();
   else throw new Error("Something went wrong");
 };
+
