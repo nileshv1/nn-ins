@@ -61,6 +61,10 @@ const Car: React.FC = () => {
     control,
   } = useForm({ resolver: yupResolver(schema) });
 
+  const scrollToTop = () => {
+    window.scroll(0, 0);
+  };
+
   useEffect(() => {
     if (slug == "YourCarDetails") {
       setToggle(true);
@@ -76,6 +80,7 @@ const Car: React.FC = () => {
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(!open);
+    scrollToTop();
     console.log(open)
   };
 
