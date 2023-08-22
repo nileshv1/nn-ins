@@ -1,4 +1,4 @@
 import dynamic from "next/dynamic";
 
-const Home = dynamic(() => import("./home/home"), { ssr: false });
+const Home = dynamic(() => import("./[box]"), { ssr: false });
 export default Home;

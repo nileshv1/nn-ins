@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { Button, Container, MenuItem, Select } from "@mui/material";
 import { ROUTE_PATHS } from "@/constants/constants";
-import styles from "../../styles/variables.module.scss";
+import styles from "../../../styles/variables.module.scss";
 import Link from "next/link";
-import InfoIcon from '@mui/icons-material/Info';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import InfoIcon from "@mui/icons-material/Info";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import {
   Typography,
   FormControl,
@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 // import variables from '../../styles/variables.module.scss'
 import Grid from "@mui/material/Unstable_Grid2";
-import { Vehicle_Details } from "../../constants/constants";
+import { Vehicle_Details } from "../../../constants/constants";
 import { useState } from "react";
 import Dropdown from "@/components/dropdown/dropdown";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -27,7 +27,7 @@ import { useTranslation } from "next-i18next";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import classes from "../../styles/slug/slug.module.scss";
+import classes from "../../../styles/slug/slug.module.scss";
 
 const schema = yup.object().shape({
   fuel: yup.string().required("Fuel is required"),
@@ -37,15 +37,16 @@ const schema = yup.object().shape({
   construction: yup.string().required("Construction is required"),
   registration: yup.string().required("Registration is required"),
   number1: yup
-  .number()
+    .number()
     .typeError("Please enter a valid number")
     .required("This field is required")
     .min(2000, "Minimum value is 2000")
-    .max(157300,"maximum value is 157300")
+    .max(157300, "maximum value is 157300"),
 });
 
 const Car: React.FC = () => {
   const router = useRouter();
+  const { box } = router.query;
   const slug = router.query.slug;
   const { t } = useTranslation();
   const {
@@ -67,8 +68,9 @@ const Car: React.FC = () => {
       setToggle(false);
     }
   }, []);
-  const onSubmit = (data:any) => {
-    router.push(ROUTE_PATHS.FINAL);
+  const onSubmit = (data: any) => {
+    // router.push(ROUTE_PATHS.FINAL);
+    router.push(`/${box}/${ROUTE_PATHS.FINAL}`);
     // console.log(data);
   };
   const [toggle, setToggle] = useState(false);
@@ -76,7 +78,7 @@ const Car: React.FC = () => {
   const handleClick = () => {
     setOpen(!open);
     scrollToTop();
-    console.log(open)
+    console.log(open);
   };
 
   const theme = createTheme({
@@ -85,12 +87,12 @@ const Car: React.FC = () => {
         fontSize: 16,
         fontWeight: 550,
       },
-      h6:{
-        fontWeight: "bold"
+      h6: {
+        fontWeight: "bold",
       },
-      h5:{
-        fontWeight: "bold"
-      }
+      h5: {
+        fontWeight: "bold",
+      },
     },
   });
 
@@ -109,19 +111,27 @@ const Car: React.FC = () => {
           justifyContent="center"
           alignItems="start"
         >
-          <Grid 
-          xs={10} sm={5} md={4} lg={3} 
-          className={open ? classes.popup1 : classes.popupHide}
-          sx={{ sm:{mb:8}, md:{mb:12}}}>
-          <HighlightOffIcon className={classes.close} onClick={handleClick}/>
-          <Typography variant="h5">{t("invoiceValuePopup")}</Typography>
-          <Typography variant="body1">{t("popup1")}</Typography>
-          <Typography variant="body1">{t("popup2")}</Typography>
+          <Grid
+            xs={10}
+            sm={5}
+            md={4}
+            lg={3}
+            className={open ? classes.popup1 : classes.popupHide}
+            sx={{ sm: { mb: 8 }, md: { mb: 12 } }}
+          >
+            <HighlightOffIcon className={classes.close} onClick={handleClick} />
+            <Typography variant="h5">{t("invoiceValuePopup")}</Typography>
+            <Typography variant="body1">{t("popup1")}</Typography>
+            <Typography variant="body1">{t("popup2")}</Typography>
           </Grid>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Grid container border="0px solid pink" className={open ? classes.detailsInfoBlur : ""}>
+            <Grid
+              container
+              border="0px solid pink"
+              className={open ? classes.detailsInfoBlur : ""}
+            >
               <Grid md={6} mdOffset={1} xs={12}>
-                <Link href={ROUTE_PATHS.SIMULATION}>
+                <Link href={`/${box}/${ROUTE_PATHS.SIMULATION}`}>
                   <Button
                     startIcon={<ArrowBackIosIcon />}
                     sx={{
@@ -136,7 +146,8 @@ const Car: React.FC = () => {
               <Grid md={6} mdOffset={1} xs={12} sx={{ mb: 4 }}>
                 <Typography variant="h6">{t("yourCar")} :</Typography>
                 <Divider
-                  color={styles.primaryColor}
+                  // color={styles.primaryColor}
+                  color={box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`}
                   sx={{ height: 1.8, width: "60px" }}
                 />
               </Grid>
@@ -358,8 +369,12 @@ const Car: React.FC = () => {
                 border="0px solid orange"
               >
                 <Grid md={7} xs={12}>
-                  <Typography variant="body1">{t("invoiceValue")}
-                    <InfoIcon className={classes.infoIcon} onClick={handleClick}/>
+                  <Typography variant="body1">
+                    {t("invoiceValue")}
+                    <InfoIcon
+                      className={classes.infoIcon}
+                      onClick={handleClick}
+                    />
                   </Typography>
                   <Typography variant="body2" gutterBottom>
                     {t("discounts")}
@@ -443,7 +458,6 @@ const Car: React.FC = () => {
                 border="0px solid orange"
               >
                 <Grid md={10} mdOffset={12} xs={12}>
-               
                   <Button
                     variant="contained"
                     color="primary"
@@ -451,15 +465,14 @@ const Car: React.FC = () => {
                     type="submit"
                     sx={{
                       px: 9,
-                      backgroundColor: styles.primaryColor,
+                      backgroundColor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
                       ":hover": {
-                        bgcolor: styles.primaryColor,
+                        bgcolor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
                       },
                     }}
                   >
                     {t("next")}
                   </Button>
-                 
                 </Grid>
               </Grid>
             </Grid>

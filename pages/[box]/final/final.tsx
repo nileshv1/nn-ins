@@ -14,7 +14,7 @@ import {
   FormHelperText,
 } from "@mui/material";
 import { ROUTE_PATHS } from "@/constants/constants";
-import styles from "../../styles/variables.module.scss";
+import styles from "../../../styles/variables.module.scss";
 import Link from "next/link";
 // import variables from '../../styles/variables.module.scss'
 import Grid from "@mui/material/Unstable_Grid2";
@@ -32,7 +32,7 @@ import * as yup from "yup";
 
 const Find: React.FC = () => {
   const router = useRouter();
-  const slug = router.query.slug;
+  const { box } = router.query;
   const { t } = useTranslation();
   const schema = yup.object().shape({
     assistance: yup.string().required(t("assistancerror")),
@@ -87,7 +87,7 @@ const Find: React.FC = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container border="0px solid pink">
               <Grid md={10} mdOffset={1} xs={12}>
-                <Link href={ROUTE_PATHS.YOURCAR}>
+                <Link href={`/${box}/${ROUTE_PATHS.YOURCAR}`}>
                   <Button
                     startIcon={<ArrowBackIosIcon />}
                     sx={{
@@ -102,7 +102,7 @@ const Find: React.FC = () => {
               <Grid md={10} mdOffset={1} xs={12} sx={{ mb: 4 }}>
                 <Typography variant="h6">{t("yourCar")} :</Typography>
                 <Divider
-                  color={styles.primaryColor}
+                  color={box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`}
                   sx={{ height: 1.8, width: "60px" }}
                 />
               </Grid>
@@ -236,9 +236,9 @@ const Find: React.FC = () => {
                     type="submit"
                     sx={{
                       px: 9,
-                      backgroundColor: styles.primaryColor,
+                      backgroundColor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
                       ":hover": {
-                        bgcolor: styles.primaryColor,
+                        bgcolor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
                       },
                     }}
                   >

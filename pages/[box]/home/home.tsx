@@ -5,31 +5,41 @@ import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
-import classes from "../../styles/page.module.scss";
+import classes from "../../../styles/page.module.scss";
 // import dynamic from "next/dynamic";
 import Banner from "@/components/Banner";
 import { Box, Grid } from "@mui/material";
-import styles from "../../styles/variables.module.scss";
+import styles from "../../../styles/variables.module.scss";
 
 // const Banner = dynamic(() => import("@/components/Banner"), { ssr: true });
 
 const Home: React.FC = () => {
   const router = useRouter();
+  const { box } = router.query;
+  // console.log(box,"box")
+  // console.log(box+ROUTE_PATHS.HABITATION,"box1")
   const { t } = useTranslation();
 
   const handleContinue = () => {
-    router.push(ROUTE_PATHS.HABITATION);
+    // router.push(ROUTE_PATHS.HABITATION);
+    router.push(`/${box}/${ROUTE_PATHS.HABITATION}`);
   };
   return (
     <Grid>
-      <Banner image={contenthome} imageText={t("bannerImageText")} alt={t("bannerImageText")}/>
+      <Banner
+        image={contenthome}
+        imageText={t("bannerImageText")}
+        alt={t("bannerImageText")}
+      />
       <Grid item sx={{ py: 4 }}>
         <Grid className={classes.page_header_text}>
           {t("bannerImageText")}
-          <hr className={classes.horizontal_line} />
+          <hr className={classes.horizontal_line} style={{color:"blue", 
+          backgroundColor:box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}` }}/>
         </Grid>
       </Grid>
-      <Grid item
+      <Grid
+        item
         sx={{
           backgroundColor: styles.homebgColor,
         }}

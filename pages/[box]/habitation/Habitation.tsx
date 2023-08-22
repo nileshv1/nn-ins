@@ -5,19 +5,21 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box, Grid } from "@mui/material";
-import classes from "../../styles/habitation/habitation.module.scss";
+import classes from "../../../styles/habitation/habitation.module.scss";
 import Image from "next/image";
 import { ROUTE_PATHS } from "@/constants/constants";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
-import styles from "../../styles/variables.module.scss";
+import styles from "../../../styles/variables.module.scss";
 
 const Habitation: React.FC = () => {
   const router = useRouter();
+  const { box } = router.query;
   const { t } = useTranslation();
 
   const handleSimulation = () => {
-    router.push(ROUTE_PATHS.SIMULATION);
+    // router.push(ROUTE_PATHS.SIMULATION);
+    router.push(`/${box}/${ROUTE_PATHS.SIMULATION}`);
   };
 
   return (

@@ -7,14 +7,16 @@ import Typography from "@mui/material/Typography";
 import { Box, Grid, InputLabel, TextField } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CustomModal from "@/components/Modal/CustomModal";
-import classes from "../../styles/page.module.scss";
+import classes from "../../../styles/page.module.scss";
 import Link from "next/link";
 import { ROUTE_PATHS } from "@/constants/constants";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+import styles from "../../../styles/variables.module.scss";
 
 const Simulation: React.FC = () => {
   const router = useRouter();
+  const { box } = router.query;
   const { t } = useTranslation();
   const [userInput, setUserInput] = React.useState("");
   const [open, setOpen] = React.useState(false);
@@ -24,7 +26,8 @@ const Simulation: React.FC = () => {
   };
 
   const handleClickNext = () => {
-    router.push(ROUTE_PATHS.CARDETAILS);
+    // router.push(ROUTE_PATHS.CARDETAILS);
+    router.push(`/${box}/${ROUTE_PATHS.CARDETAILS}`);
     setUserInput("");
   };
 
@@ -47,7 +50,8 @@ const Simulation: React.FC = () => {
               <Typography variant="h5" color="text.secondary">
                 {t("simulationHeaderText")}
               </Typography>
-              <hr className={classes.horizontal_line} />
+              <hr className={classes.horizontal_line} style={{color:"blue", 
+          backgroundColor:box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}` }}/>
             </CardContent>
           </Card>
         </Grid>
@@ -88,16 +92,17 @@ const Simulation: React.FC = () => {
         </Grid>
 
         <Grid item xs={12} display="flex" justifyContent="flex-end">
-          <Link href={ROUTE_PATHS.YOURCAR}>
+          <Link href={`/${box}/${ROUTE_PATHS.YOURCAR}`}>
             <Button
               // onClick={handleClick}
               variant="outlined"
               sx={{
-                borderColor: "#55B862",
-                color: "#20ea3c",
+                borderColor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
+                color: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
                 ":hover": {
-                  borderColor: "#55B862",
+                  borderColor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
                 },
+                
               }}
             >
               {t("simulationWithoutChassisBtn")}
