@@ -78,9 +78,9 @@ const Simulation: React.FC = () => {
             variant="contained"
             sx={{
               px: 9,
-              backgroundColor: "#55B862",
+              backgroundColor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
               ":hover": {
-                bgcolor: "#55B862",
+                bgcolor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
               },
             }}
             disabled={!userInput}
