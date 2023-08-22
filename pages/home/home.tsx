@@ -11,7 +11,7 @@ import Banner from "@/components/Banner";
 import { Box } from "@mui/material";
 import styles from "../../styles/variables.module.scss";
 import { fetchAllUsers } from "../api/user/user";
-import { signIn, useSession } from "next-auth/react";
+import { getSession, signIn, signOut, useSession } from "next-auth/react";
 
 // const Banner = dynamic(() => import("@/components/Banner"), { ssr: true });
 
@@ -23,10 +23,15 @@ const Home: React.FC = () => {
     router.push(ROUTE_PATHS.HABITATION);
   };
 
+  const handleDashboard = () => {
+    router.push(ROUTE_PATHS.DASHBOARD);
+  };
+
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(Boolean);
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
+  console.log(session, status);
   useEffect(() => {
     try {
       fetchAllUsers().then((data) => {
@@ -40,59 +45,73 @@ const Home: React.FC = () => {
     }
   }, [session]);
 
-  if (!session) {
-    return <p>Access Denied</p>;
-  }
-
   return (
-    <Box>
-      <Banner image={contenthome} imageText={t("bannerImageText")} />
-      <Box sx={{ py: 4 }}>
-        <Box className={classes.page_header_text}>
-          {t("bannerImageText")}
-          <hr className={classes.horizontal_line} />
-        </Box>
-      </Box>
-      <Box
-        sx={{
-          backgroundColor: styles.homebgColor,
-        }}
-      >
-        <Box className={classes.header_text}>{t("headerInsurance")}</Box>
-        <Box className={classes.home_content}>
-          <a onClick={handleContinue} className={classes.cursor} role="linkimg">
-            <Image
-              src={assurance_auto}
-              alt="assuranceimg"
-              width="116"
-              height="117"
-              priority={true}
-            />
-          </a>
-          <a onClick={handleContinue} className={classes.cursor}>
-            <Image
-              src={habitation}
-              alt="habitationimg"
-              width="116"
-              height="117"
-              priority={true}
-            />
-          </a>
-        </Box>
-        <button disabled>Home</button>
-      </Box>
-      <h1>List of Users</h1>
-      {users && users.length > 0 ? (
-        users.map((user, index) => (
-          <ul key={`user${index}`}>
-            <li>{user["name"]}</li>
-          </ul>
-        ))
+    <>
+      <button onClick={handleDashboard}>Dashboard</button>
+      {status == "authenticated" ? (
+        <>
+          <Box>Signed in</Box>
+          <button onClick={() => signOut()}>Sign out</button>
+        </>
       ) : (
-        <p>No users found</p>
+        <>
+          {" "}
+          Not signed in <br />
+          <button onClick={() => signIn()}>Sign in</button>
+        </>
       )}
-    </Box>
+    </>
   );
+
+  // return (
+  //   <Box>
+  //     <Banner image={contenthome} imageText={t("bannerImageText")} />
+  //     <Box sx={{ py: 4 }}>
+  //       <Box className={classes.page_header_text}>
+  //         {t("bannerImageText")}
+  //         <hr className={classes.horizontal_line} />
+  //       </Box>
+  //     </Box>
+  //     <Box
+  //       sx={{
+  //         backgroundColor: styles.homebgColor,
+  //       }}
+  //     >
+  //       <Box className={classes.header_text}>{t("headerInsurance")}</Box>
+  //       <Box className={classes.home_content}>
+  //         <a onClick={handleContinue} className={classes.cursor} role="linkimg">
+  //           <Image
+  //             src={assurance_auto}
+  //             alt="assuranceimg"
+  //             width="116"
+  //             height="117"
+  //             priority={true}
+  //           />
+  //         </a>
+  //         <a onClick={handleContinue} className={classes.cursor}>
+  //           <Image
+  //             src={habitation}
+  //             alt="habitationimg"
+  //             width="116"
+  //             height="117"
+  //             priority={true}
+  //           />
+  //         </a>
+  //       </Box>
+  //       <button disabled>Home</button>
+  //     </Box>
+  //     <h1>List of Users</h1>
+  //     {users && users.length > 0 ? (
+  //       users.map((user, index) => (
+  //         <ul key={`user${index}`}>
+  //           <li>{user["name"]}</li>
+  //         </ul>
+  //       ))
+  //     ) : (
+  //       <p>No users found</p>
+  //     )}
+  //   </Box>
+  // );
 };
 
 export default Home;

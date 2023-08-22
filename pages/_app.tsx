@@ -10,7 +10,10 @@ import { SessionProvider } from "next-auth/react";
 import { Session } from "next-auth";
 
 const theme = createTheme();
-function App({ Component, pageProps: { session, ...pageProps}, }: AppProps<{ session: Session }>) {
+function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps<{ session: Session }>) {
   useEffect(() => {
     // Ensure the locale is set correctly for initial page load
     // if (!i18n.language) {
@@ -19,16 +22,16 @@ function App({ Component, pageProps: { session, ...pageProps}, }: AppProps<{ ses
   }, []);
 
   return (
-    <I18nextProvider i18n={i18n}>
-      <SessionProvider session={session}>
+    <SessionProvider session={session}>
+      <I18nextProvider i18n={i18n}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Layout>
             <Component {...pageProps} />
           </Layout>
         </ThemeProvider>
-      </SessionProvider>
-    </I18nextProvider>
+      </I18nextProvider>
+    </SessionProvider>
   );
 }
 
