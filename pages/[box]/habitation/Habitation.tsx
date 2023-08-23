@@ -12,13 +12,12 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import styles from "../../../styles/variables.module.scss";
 
+
 const Habitation: React.FC = () => {
   const router = useRouter();
   const { box } = router.query;
   const { t } = useTranslation();
-
   const handleSimulation = () => {
-    // router.push(ROUTE_PATHS.SIMULATION);
     router.push(`/${box}/${ROUTE_PATHS.SIMULATION}`);
   };
 

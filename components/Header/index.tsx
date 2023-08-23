@@ -6,10 +6,18 @@ import { useRouter } from "next/router";
 import React from "react";
 import page_classes from "../../styles/page.module.scss";
 import classes from "./header.module.scss";
+import { useEffect } from "react";
 
 const Header: React.FC = () => {
   const router = useRouter();
+  const {box}  = router.query;
+  console.log(box,"header123");
   const { t } = useTranslation();
+ //  var box;
+  // useEffect(() => {
+  //  var box = localStorage.getItem("box");
+  //  console.log(box,"header91")
+  // },[box])
 
   const handleContinue = () => {
     router.push("/");

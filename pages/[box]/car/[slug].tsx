@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import { Button, Container, MenuItem, Select } from "@mui/material";
+import { Button } from "@mui/material";
 import { ROUTE_PATHS } from "@/constants/constants";
 import styles from "../../../styles/variables.module.scss";
 import Link from "next/link";
@@ -13,7 +13,6 @@ import {
   Divider,
   FormHelperText,
 } from "@mui/material";
-// import variables from '../../styles/variables.module.scss'
 import Grid from "@mui/material/Unstable_Grid2";
 import { Vehicle_Details } from "../../../constants/constants";
 import { useState } from "react";
@@ -22,12 +21,12 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Banner from "@/components/Banner";
 import { policybanner } from "@/public/images";
-import { BANNER_IMAGE_TEXT } from "@/constants/text_constants";
 import { useTranslation } from "next-i18next";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import classes from "../../../styles/slug/slug.module.scss";
+import { useTheme } from '@mui/material/styles';
 
 const schema = yup.object().shape({
   fuel: yup.string().required("Fuel is required"),
@@ -49,6 +48,7 @@ const Car: React.FC = () => {
   const { box } = router.query;
   const slug = router.query.slug;
   const { t } = useTranslation();
+  const theme = useTheme();
   const {
     register,
     handleSubmit,
@@ -69,9 +69,7 @@ const Car: React.FC = () => {
     }
   }, []);
   const onSubmit = (data: any) => {
-    // router.push(ROUTE_PATHS.FINAL);
     router.push(`/${box}/${ROUTE_PATHS.FINAL}`);
-    // console.log(data);
   };
   const [toggle, setToggle] = useState(false);
   const [open, setOpen] = useState(false);
@@ -81,7 +79,7 @@ const Car: React.FC = () => {
     console.log(open);
   };
 
-  const theme = createTheme({
+  const themeslug = createTheme({
     typography: {
       subtitle2: {
         fontSize: 16,
@@ -97,7 +95,7 @@ const Car: React.FC = () => {
   });
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themeslug}>
       <Grid container border="0px solid green">
         <Banner
           image={policybanner}
@@ -147,7 +145,7 @@ const Car: React.FC = () => {
                 <Typography variant="h6">{t("yourCar")} :</Typography>
                 <Divider
                   // color={styles.primaryColor}
-                  color={box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`}
+                  color={theme.palette.primary.main}
                   sx={{ height: 1.8, width: "60px" }}
                 />
               </Grid>
@@ -465,9 +463,9 @@ const Car: React.FC = () => {
                     type="submit"
                     sx={{
                       px: 9,
-                      backgroundColor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
+                      backgroundColor:theme.palette.primary.light,
                       ":hover": {
-                        bgcolor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
+                        bgcolor: theme.palette.primary.main,
                       },
                     }}
                   >

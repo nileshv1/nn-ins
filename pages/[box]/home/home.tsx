@@ -10,14 +10,14 @@ import classes from "../../../styles/page.module.scss";
 import Banner from "@/components/Banner";
 import { Box, Grid } from "@mui/material";
 import styles from "../../../styles/variables.module.scss";
+import { useTheme } from '@mui/material/styles';
 
 // const Banner = dynamic(() => import("@/components/Banner"), { ssr: true });
 
 const Home: React.FC = () => {
   const router = useRouter();
   const { box } = router.query;
-  // console.log(box,"box")
-  // console.log(box+ROUTE_PATHS.HABITATION,"box1")
+  const theme = useTheme();
   const { t } = useTranslation();
 
   const handleContinue = () => {
@@ -34,8 +34,8 @@ const Home: React.FC = () => {
       <Grid item sx={{ py: 4 }}>
         <Grid className={classes.page_header_text}>
           {t("bannerImageText")}
-          <hr className={classes.horizontal_line} style={{color:"blue", 
-          backgroundColor:box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}` }}/>
+          <hr className={classes.horizontal_line}
+           style={{ backgroundColor:theme.palette.primary.main }}/>
         </Grid>
       </Grid>
       <Grid

@@ -27,13 +27,13 @@ import { useTranslation } from "next-i18next";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
-
+import { useTheme } from '@mui/material/styles';
 
 const Find: React.FC = () => {
   const router = useRouter();
   const { box } = router.query;
   const { t } = useTranslation();
+  const theme = useTheme();
   const schema = yup.object().shape({
     assistance: yup.string().required(t("assistancerror")),
     kilometers: yup.string().required(t("kilometerserror")),
@@ -54,7 +54,7 @@ const Find: React.FC = () => {
     alert("Thanks!! You have fill the form.");
   };
 
-  const theme = createTheme({
+  const themefinal = createTheme({
     typography: {
       subtitle2: {
         fontSize: 16,
@@ -73,7 +73,7 @@ const Find: React.FC = () => {
   });
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themefinal}>
       <Box border="0px solid green">
         <Banner
           image={policybanner}
@@ -102,7 +102,7 @@ const Find: React.FC = () => {
               <Grid md={10} mdOffset={1} xs={12} sx={{ mb: 4 }}>
                 <Typography variant="h6">{t("yourCar")} :</Typography>
                 <Divider
-                  color={box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`}
+                  color={theme.palette.primary.main}
                   sx={{ height: 1.8, width: "60px" }}
                 />
               </Grid>
@@ -236,9 +236,9 @@ const Find: React.FC = () => {
                     type="submit"
                     sx={{
                       px: 9,
-                      backgroundColor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
+                      backgroundColor: theme.palette.primary.light,
                       ":hover": {
-                        bgcolor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
+                        bgcolor: theme.palette.primary.main,
                       },
                     }}
                   >

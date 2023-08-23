@@ -13,10 +13,12 @@ import { ROUTE_PATHS } from "@/constants/constants";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import styles from "../../../styles/variables.module.scss";
+import { useTheme } from '@mui/material/styles';
 
 const Simulation: React.FC = () => {
   const router = useRouter();
   const { box } = router.query;
+  const theme = useTheme();
   const { t } = useTranslation();
   const [userInput, setUserInput] = React.useState("");
   const [open, setOpen] = React.useState(false);
@@ -26,7 +28,6 @@ const Simulation: React.FC = () => {
   };
 
   const handleClickNext = () => {
-    // router.push(ROUTE_PATHS.CARDETAILS);
     router.push(`/${box}/${ROUTE_PATHS.CARDETAILS}`);
     setUserInput("");
   };
@@ -50,8 +51,8 @@ const Simulation: React.FC = () => {
               <Typography variant="h5" color="text.secondary">
                 {t("simulationHeaderText")}
               </Typography>
-              <hr className={classes.horizontal_line} style={{color:"blue", 
-          backgroundColor:box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}` }}/>
+              <hr className={classes.horizontal_line} 
+              style={{ backgroundColor:theme.palette.primary.main }}/>
             </CardContent>
           </Card>
         </Grid>
@@ -78,9 +79,9 @@ const Simulation: React.FC = () => {
             variant="contained"
             sx={{
               px: 9,
-              backgroundColor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
+              backgroundColor: theme.palette.primary.light,
               ":hover": {
-                bgcolor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
+                bgcolor: theme.palette.primary.main,
               },
             }}
             disabled={!userInput}
@@ -97,10 +98,10 @@ const Simulation: React.FC = () => {
               // onClick={handleClick}
               variant="outlined"
               sx={{
-                borderColor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
-                color: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
+                borderColor: theme.palette.primary.main,
+                color: theme.palette.primary.main,
                 ":hover": {
-                  borderColor: box =='INR'? `${styles.secondaryColor}` :`${styles.primaryColor}`,
+                  borderColor: theme.palette.primary.main,
                 },
                 
               }}
