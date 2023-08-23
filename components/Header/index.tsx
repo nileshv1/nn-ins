@@ -11,7 +11,6 @@ import { useEffect } from "react";
 const Header: React.FC = () => {
   const router = useRouter();
   const {box}  = router.query;
-  console.log(box,"header123");
   const { t } = useTranslation();
  //  var box;
   // useEffect(() => {

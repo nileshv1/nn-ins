@@ -49,8 +49,8 @@ const Find: React.FC = () => {
   useEffect(() => {
     console.log(errors)
   }, []);
-  const onSubmit = () => {
-    console.log(errors);
+  const onSubmit = (data) => {
+    console.log(data);
     alert("Thanks!! You have fill the form.");
   };
 
@@ -87,7 +87,7 @@ const Find: React.FC = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container border="0px solid pink">
               <Grid md={10} mdOffset={1} xs={12}>
-                <Link href={`/${box}/${ROUTE_PATHS.YOURCAR}`}>
+                <Link href={`/${box}${ROUTE_PATHS.YOURCAR}`}>
                   <Button
                     startIcon={<ArrowBackIosIcon />}
                     sx={{

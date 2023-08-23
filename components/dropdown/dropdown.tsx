@@ -22,7 +22,7 @@ interface DropdownProps {
 }
 const Dropdown: React.FC<DropdownProps> = (props) => {
   const { options, name, label, id, errors, control, ...rest } = props;
-  console.log(errors)
+  // console.log(errors)
 
   return (
     <FormControl size="small" fullWidth>

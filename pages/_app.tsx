@@ -30,7 +30,7 @@ function App({ Component, pageProps }: AppProps) {
   });
   const router = useRouter();
   const {box}  = router.query;
-  console.log(box,"app page");
+  // console.log(box,"app page");
   const selectedTheme = box === 'org' ? secondaryTheme :primaryTheme ;
   
   useEffect(() => {
