@@ -18,7 +18,7 @@ const Habitation: React.FC = () => {
   const { box } = router.query;
   const { t } = useTranslation();
   const handleSimulation = () => {
-    router.push(`/${box}/${ROUTE_PATHS.SIMULATION}`);
+    router.push(`/${box}${ROUTE_PATHS.SIMULATION}`);
   };
 
   return (

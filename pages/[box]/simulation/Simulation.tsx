@@ -28,7 +28,7 @@ const Simulation: React.FC = () => {
   };
 
   const handleClickNext = () => {
-    router.push(`/${box}/${ROUTE_PATHS.CARDETAILS}`);
+    router.push(`/${box}${ROUTE_PATHS.CARDETAILS}`);
     setUserInput("");
   };
 
@@ -93,7 +93,7 @@ const Simulation: React.FC = () => {
         </Grid>
 
         <Grid item xs={12} display="flex" justifyContent="flex-end">
-          <Link href={`/${box}/${ROUTE_PATHS.YOURCAR}`}>
+          <Link href={`/${box}${ROUTE_PATHS.YOURCAR}`}>
             <Button
               // onClick={handleClick}
               variant="outlined"

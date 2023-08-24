@@ -69,14 +69,14 @@ const Car: React.FC = () => {
     }
   }, []);
   const onSubmit = (data: any) => {
-    router.push(`/${box}/${ROUTE_PATHS.FINAL}`);
+    router.push(`/${box}${ROUTE_PATHS.FINAL}`);
   };
   const [toggle, setToggle] = useState(false);
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(!open);
     scrollToTop();
-    console.log(open);
+    // console.log(open);
   };
 
   const themeslug = createTheme({
@@ -129,7 +129,7 @@ const Car: React.FC = () => {
               className={open ? classes.detailsInfoBlur : ""}
             >
               <Grid md={6} mdOffset={1} xs={12}>
-                <Link href={`/${box}/${ROUTE_PATHS.SIMULATION}`}>
+                <Link href={`/${box}${ROUTE_PATHS.SIMULATION}`}>
                   <Button
                     startIcon={<ArrowBackIosIcon />}
                     sx={{

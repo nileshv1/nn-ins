@@ -27,7 +27,7 @@ import { useTranslation } from "next-i18next";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from "@mui/material/styles";
 
 const Find: React.FC = () => {
   const router = useRouter();
@@ -37,7 +37,7 @@ const Find: React.FC = () => {
   const schema = yup.object().shape({
     assistance: yup.string().required(t("assistancerror")),
     kilometers: yup.string().required(t("kilometerserror")),
-});
+  });
   const {
     register,
     handleSubmit,
@@ -47,10 +47,10 @@ const Find: React.FC = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   useEffect(() => {
-    console.log(errors)
+    // console.log(errors);
   }, []);
   const onSubmit = () => {
-    console.log(errors);
+    // console.log(data);
     alert("Thanks!! You have fill the form.");
   };
 
@@ -63,12 +63,12 @@ const Find: React.FC = () => {
       body1: {
         fontSize: 16,
       },
-      body2:{
-          fontSize:19
+      body2: {
+        fontSize: 19,
       },
-      h6:{
-        fontWeight: "bold"
-      }
+      h6: {
+        fontWeight: "bold",
+      },
     },
   });
 
@@ -87,7 +87,7 @@ const Find: React.FC = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container border="0px solid pink">
               <Grid md={10} mdOffset={1} xs={12}>
-                <Link href={`/${box}/${ROUTE_PATHS.YOURCAR}`}>
+                <Link href={`/${box}${ROUTE_PATHS.YOURCAR}`}>
                   <Button
                     startIcon={<ArrowBackIosIcon />}
                     sx={{
@@ -126,36 +126,32 @@ const Find: React.FC = () => {
                     {t("radioq1")}
                   </Typography>
                   <FormControl>
-                  <Controller
-                    name="assistance"
-                    control={control}
-                    render={({ field }) => (
-                    <RadioGroup
-                    {...field}
-                      row
-                      style={{ gap: '37px' }}
-                    >
-                      <FormControlLabel
-                        value="Yes"
-                        control={<Radio size="small" />}
-                        label="Yes"
-                      />
-                      <FormControlLabel
-                        value="No"
-                        control={<Radio size="small" />}
-                        label="No"
-                      />
-                    </RadioGroup>
-                     )}
-                     />
-                      {errors.assistance && (
+                    <Controller
+                      name="assistance"
+                      control={control}
+                      defaultValue=""
+                      render={({ field }) => (
+                        <RadioGroup {...field} row style={{ gap: "37px" }}>
+                          <FormControlLabel
+                            value="Yes"
+                            control={<Radio size="small" />}
+                            label="Yes"
+                          />
+                          <FormControlLabel
+                            value="No"
+                            control={<Radio size="small" />}
+                            label="No"
+                          />
+                        </RadioGroup>
+                      )}
+                    />
+                    {errors.assistance && (
                       <FormHelperText error>
                         {errors.assistance.message}
                       </FormHelperText>
                     )}
                   </FormControl>
                 </Grid>
-                
               </Grid>
               <Grid
                 md={10}
@@ -177,36 +173,34 @@ const Find: React.FC = () => {
                     {t("radioq2")}
                   </Typography>
                   <FormControl>
-                  <Controller
-                    name="kilometers"
-                    control={control}
-                    render={({ field }) => (
-                    <RadioGroup
-                    {...field}
-                      name="row-radio-buttons-group"     
-                    >
-                      <FormControlLabel
-                        value="Less than 7,500"
-                        control={<Radio size="small" />}
-                        label="Less than 7,500"
-                      />
-                      <FormControlLabel
-                        value="Between 7,500 and 15,000"
-                        control={<Radio size="small" />}
-                        label="Between 7,500 and 15,000"
-                      />
-                      <FormControlLabel
-                        value="Between 15,000 and 30,000"
-                        control={<Radio size="small" />}
-                        label="Between 15,000 and 30,000"
-                      />
-                      <FormControlLabel
-                        value="More than 30,000"
-                        control={<Radio size="small" />}
-                        label="More than 30,000"
-                      />
-                    </RadioGroup>
-                    )}
+                    <Controller
+                      name="kilometers"
+                      control={control}
+                      defaultValue=""
+                      render={({ field }) => (
+                        <RadioGroup {...field} name="row-radio-buttons-group">
+                          <FormControlLabel
+                            value="Less than 7,500"
+                            control={<Radio size="small" />}
+                            label="Less than 7,500"
+                          />
+                          <FormControlLabel
+                            value="Between 7,500 and 15,000"
+                            control={<Radio size="small" />}
+                            label="Between 7,500 and 15,000"
+                          />
+                          <FormControlLabel
+                            value="Between 15,000 and 30,000"
+                            control={<Radio size="small" />}
+                            label="Between 15,000 and 30,000"
+                          />
+                          <FormControlLabel
+                            value="More than 30,000"
+                            control={<Radio size="small" />}
+                            label="More than 30,000"
+                          />
+                        </RadioGroup>
+                      )}
                     />
                     {errors.kilometers && (
                       <FormHelperText error>
@@ -214,9 +208,9 @@ const Find: React.FC = () => {
                       </FormHelperText>
                     )}
                   </FormControl>
-                </Grid>       
+                </Grid>
               </Grid>
-              
+
               <Grid
                 md={6}
                 mdOffset={3}
