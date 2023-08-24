@@ -7,6 +7,7 @@ import { appWithTranslation } from "next-i18next";
 import i18n from "../lib/i18n";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 
 const theme = createTheme();
 function App({ Component, pageProps }: AppProps) {
@@ -32,6 +33,7 @@ function App({ Component, pageProps }: AppProps) {
   const {box}  = router.query;
   // console.log(box,"app page");
   const selectedTheme = box === 'org' ? secondaryTheme :primaryTheme ;
+  const Layout = dynamic(() => import("../layout/layout"), { ssr: false });
   
   useEffect(() => {
     // Ensure the locale is set correctly for initial page load
