@@ -11,6 +11,7 @@ import { useEffect } from "react";
 const Header: React.FC = () => {
   const router = useRouter();
   const {box}  = router.query;
+  var flag = box ? box : "rgf"
   const { t } = useTranslation();
  //  var box;
   // useEffect(() => {
@@ -19,7 +20,7 @@ const Header: React.FC = () => {
   // },[box])
 
   const handleContinue = () => {
-    router.push("/");
+    router.push(`/${flag}`);
   };
 
   return (
