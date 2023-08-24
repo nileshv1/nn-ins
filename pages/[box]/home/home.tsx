@@ -17,12 +17,13 @@ import { useTheme } from '@mui/material/styles';
 const Home: React.FC = () => {
   const router = useRouter();
   const { box } = router.query;
+  var flag = box ? box : "rgf"
   const theme = useTheme();
   const { t } = useTranslation();
 
   const handleContinue = () => {
     // router.push(ROUTE_PATHS.HABITATION);
-    router.push(`/${box}/${ROUTE_PATHS.HABITATION}`);
+    router.push(`/${flag}/${ROUTE_PATHS.HABITATION}`);
   };
   return (
     <Grid>
