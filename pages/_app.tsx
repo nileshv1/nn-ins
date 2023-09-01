@@ -8,24 +8,13 @@ import i18n from "../lib/i18n";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-import flag from "./../flag.json";
+import store from "./store";
+import { Provider } from "react-redux";
 
 const theme = createTheme();
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const { box } = router.query;
-  const flagData = flag.flag.filter(f => f.id == box)
-  const flagColor = flagData[0]?.color
-  const flagbackgroundColor = flagData[0]?.backgroundColor
-  const flagTheme = createTheme({
-    palette: {
-      primary: {
-        main: flagColor ? flagColor : "#55bb14",
-        light: flagbackgroundColor ? flagbackgroundColor : "55bb14c2",
-      },
-    },
-    // Other properties...
-  });
   const Layout = dynamic(() => import("../layout/layout"), { ssr: false });
 
   useEffect(() => {
@@ -33,18 +22,19 @@ function App({ Component, pageProps }: AppProps) {
     // if (!i18n.language) {
     i18n.changeLanguage(window.navigator.language);
     // }
-    // localStorage.setItem("box", box);
+    //
+    // dispatch(getFlagData());
   }, [box]);
 
   return (
-    <I18nextProvider i18n={i18n}>
-      <ThemeProvider theme={flagTheme}>
+    <Provider store={store}>
+      <I18nextProvider i18n={i18n}>
         <CssBaseline />
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </ThemeProvider>
-    </I18nextProvider>
+      </I18nextProvider>
+    </Provider>
   );
 }
 

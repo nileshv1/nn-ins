@@ -1,0 +1,18 @@
+{
+    "flag":[
+        {
+            "id":"RGF",
+            "color":"#55bb14",
+            "backgroundColor":"#55bb14c2",
+            "image":"RGF",
+            "fontSize":"14px"
+        },
+        {
+            "id":"org",
+            "color":"#ff8400",
+            "backgroundColor":"#ff8400bf",
+            "image":"ORG",
+            "fontSize":"16px"
+        }
+    ]
+}

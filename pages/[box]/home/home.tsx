@@ -4,23 +4,32 @@ import { assurance_auto, contenthome, habitation } from "@/public/images";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "../../../styles/page.module.scss";
 // import dynamic from "next/dynamic";
 import Banner from "@/components/Banner";
 import { Box, Grid } from "@mui/material";
 import styles from "../../../styles/variables.module.scss";
 import { useTheme } from '@mui/material/styles';
+import { connect, useDispatch, useSelector, Provider } from "react-redux";
+import { getFlagData } from "../../feature/flag/flagSlice";
 
 // const Banner = dynamic(() => import("@/components/Banner"), { ssr: true });
 
 const Home: React.FC = () => {
+  // const dispatch = useDispatch();
+  // const flags = useSelector((state) => state.flags);
+  // console.log(flags,"Flags")
   const router = useRouter();
   const { box } = router.query;
   var flag = box ? box : "rgf"
   const theme = useTheme();
   const { t } = useTranslation();
 
+  useEffect(()=>{
+    // dispatch(getFlagData());
+  },[])
+  
   const handleContinue = () => {
     // router.push(ROUTE_PATHS.HABITATION);
     router.push(`/${flag}/${ROUTE_PATHS.HABITATION}`);
