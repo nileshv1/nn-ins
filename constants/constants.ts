@@ -9,7 +9,8 @@ export enum ROUTE_PATHS {
   CARDETAILS = "/car/YourCarDetails",
   YOURCAR = "/car/YourCar",
   DASHBOARD = "/dashboard",
-  Cascadingdropdown ='/dropdown'
+  Cascadingdropdown ='/dropdown',
+  CommentsPage='/comments'
   
 }
 

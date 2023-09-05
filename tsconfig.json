@@ -24,6 +24,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/auth/[...nextauth].ts", "pages/api/auth/[...nextauth].js", "pages/dropdown.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/auth/[...nextauth].ts", "pages/api/auth/[...nextauth].js", "pages/dropdown.js", "pages/comments/index.ts", "pages/api/comments/index.ts"],
   "exclude": ["node_modules"]
 }
