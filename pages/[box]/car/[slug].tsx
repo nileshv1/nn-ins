@@ -394,7 +394,7 @@ const Car: React.FC = () => {
                   >
                     <Controller
                       name="number1"
-                      defaultValue=""
+                      //defaultValue=""
                       control={control}
                       render={({ field }) => (
                         <OutlinedInput
