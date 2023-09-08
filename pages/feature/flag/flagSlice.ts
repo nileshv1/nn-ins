@@ -1,10 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const authState = {
-    isLoading: false,
+interface authStateFlag {
+  // Define your expected properties here
+  isLoading: string;
+  isError: string | undefined;
+  flagsData: Array<{ color: string; backgroundColor: string }>;
+}
+
+const authState:authStateFlag = {
+    isLoading: "false",
     isError: "",
     flagsData: []
   }
+  
 
 export const flagSlice = createSlice({
     name: "flags",
@@ -13,7 +21,7 @@ export const flagSlice = createSlice({
     },
     extraReducers: (builder) => {
       builder.addCase(getFlagData.pending, (state, action) => {
-        state.isLoading = true;
+        state.isLoading = "true";
       });
       builder.addCase(getFlagData.rejected, (state, action) => {
         state.isLoading = "Rejected";
@@ -26,7 +34,7 @@ export const flagSlice = createSlice({
       });
     },
   });
-  export const getFlagData = createAsyncThunk(
+  export const getFlagData:any = createAsyncThunk(
     "getFlagData",
     async (params, thunkAPI) => {
       let result = await fetch(

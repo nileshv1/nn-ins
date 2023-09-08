@@ -38,7 +38,7 @@ const CustomModal: React.FC<CustomModalProps> = ({ open, setOpen }) => {
               alt="close"
               width="20"
               height="20"
-              onClick={() => setOpen(false)}
+              //onClick={() => setOpen(false)}
             />
           </div>
           <Typography id="modal-modal-title" variant="h6" component="h2">

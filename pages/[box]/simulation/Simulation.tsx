@@ -62,7 +62,7 @@ const Simulation: React.FC = () => {
           <InputLabel htmlFor="component-simple">
             {t("simulationContentLabel")}
             <InfoOutlinedIcon onClick={() => setOpen((open) => !open)} />
-            {open && <CustomModal open={open} setOpen={setOpen} />}
+            {/* {open && <CustomModal open={open} setOpen={setOpen} />} */}
           </InputLabel>
           <TextField
             id="outlined-basic"

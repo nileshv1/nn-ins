@@ -8,7 +8,8 @@ const rootReducer = combineReducers({
 function loadFromLocalStorage() {
     try {
         const serialisedState =
-            typeof window !== 'undefined' && localStorage.getItem('persistantState')
+            typeof window !== 'undefined' 
+            && localStorage.getItem('persistantState')
         if (serialisedState === null) return undefined
         return JSON.parse(serialisedState)
     } catch (e) {
