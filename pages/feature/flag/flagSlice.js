@@ -9,8 +9,7 @@ const authState = {
 export const flagSlice = createSlice({
     name: "flags",
     initialState: authState,
-    reducers: {
-  
+    reducers: { 
     },
     extraReducers: (builder) => {
       builder.addCase(getFlagData.pending, (state, action) => {
