@@ -46,6 +46,7 @@ const Habitation: React.FC = () => {
           py: 4,
           px: { xs: 1, sm: 4 },
         }}
+        border="2px solid orange"
       >
         <Grid item sx={{ pb: 3 }}>
           <Typography variant="body1" sx={{ color: "white" }}>
@@ -56,66 +57,53 @@ const Habitation: React.FC = () => {
             sx={{ height: 3.5, width: "5rem", mt: 0.5 }}
           />
         </Grid>
-        <Grid container item border="2px solid white">
+        <Grid container item border="2px solid orange" sx={{ display: "flex" }}>
           <Grid
             item
             xs={3}
             sx={{
               display: "flex",
               flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
             }}
             border="4px solid green"
           >
-            <Box
-              sx={{
-                my: 2,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              border="2px solid pink"
-            >
-              <Image
-                src="/images/calculation.png"
-                width={50}
-                height={50}
-                alt="Picture of the author"
-              />
-            </Box>
-            <Box
-              sx={{
-                my: 2,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              border="2px solid pink"
-            >
-              <Image
-                src="/images/calendar.png"
-                width={50}
-                height={50}
-                alt="Picture of the author"
-              />
-            </Box>
-            <Box
-              sx={{
-                my: 2,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              border="2px solid pink"
-            >
-              <Image
-                src="/images/mail.png"
-                width={50}
-                height={50}
-                alt="Picture of the author"
-              />
-            </Box>
+            <Image
+              src="/images/calculation.png"
+              width={50}
+              height={50}
+              alt="Picture of the author"
+            />
           </Grid>
-
+          <Grid
+            item
+            xs={9}
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              justifyContent: { sx: "center", sm: "space-around" },
+              alignItems: "center",
+            }}
+            border="4px solid green"
+          >
+            <Typography
+              variant="body2"
+              sx={{ color: "white", mb: { xs: 1, sm: 0 }, textAlign: "center" }}
+            >
+              {t("habitationSimulationContent")}
+            </Typography>
+            <Button
+              variant="contained"
+              color="success"
+              sx={{
+                width: 140,
+              }}
+              onClick={handleSimulation}
+            >
+              {t("habitationSimulationBtn")}
+            </Button>
+          </Grid>
           {/* <Grid item={true} xs={10}>
             <Grid
               container

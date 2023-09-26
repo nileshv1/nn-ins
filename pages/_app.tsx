@@ -23,7 +23,7 @@ function App({ Component, pageProps }: AppProps) {
         fontSize: "16px",
       },
       body2: {
-        fontSize: "14px",
+        fontSize: "15px",
       },
     },
     palette: {
