@@ -20,7 +20,7 @@ function App({ Component, pageProps }: AppProps) {
         fontSize: "14px",
       },
       body1: {
-        fontSize: "15px",
+        fontSize: "16px",
       },
       body2: {
         fontSize: "14px",

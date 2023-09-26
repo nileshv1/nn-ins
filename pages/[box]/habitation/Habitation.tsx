@@ -4,15 +4,15 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Divider } from "@mui/material";
 import classes from "../../../styles/habitation/habitation.module.scss";
 import Image from "next/image";
 import { ROUTE_PATHS } from "@/constants/constants";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
-import styles from "../../../styles/variables.module.scss";
 import Banner from "@/components/Banner";
 import { contenthome, policybanner } from "@/public/images";
+import { useTheme } from "@mui/material/styles";
 
 const Habitation: React.FC = () => {
   const router = useRouter();
@@ -21,58 +21,102 @@ const Habitation: React.FC = () => {
   const handleSimulation = () => {
     router.push(`/${box}${ROUTE_PATHS.SIMULATION}`);
   };
+  const theme = useTheme();
 
   return (
     <Grid container>
-      {/* <Grid container item spacing={2}>
-        <Grid item xs={12}>
-          <Card
-            sx={{
-              bgcolor: "initial",
-              boxShadow: "none",
-            }}
-          >
-            <CardMedia
-              component="img"
-              alt="habitation image"
-              image="/images/policybanner.png"
-            />
-            <CardContent>
-              <Typography variant="body2" color="text.secondary">
-                {t("habitationCardContent")}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid> */}
       <Banner
         image={policybanner}
         imageText={t("")}
         alt={t("bannerImageText")}
       />
-      <Typography variant="body2" color="text.secondary" sx={{ my: 3, ml: 3 }}>
+      <Typography variant="body1" color="text.secondary" sx={{ my: 3, ml: 3 }}>
         {t("habitationCardContent")}
       </Typography>
 
-      <Grid className={classes.info_section}>
-        <Grid container spacing={2} alignItems="center" sx={{ px: 2 }}>
-          <Grid item xs={12}>
-            <Typography variant="body2" className={classes.text_style}>
-              {t("habitationHeading")}
-            </Typography>
-            <hr className={classes.horizontal_line} />
+      <Grid
+        container
+        item
+        sx={{
+          backgroundColor: "#002147",
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          py: 4,
+          px: { xs: 1, sm: 4 },
+        }}
+      >
+        <Grid item sx={{ pb: 3 }}>
+          <Typography variant="body1" sx={{ color: "white" }}>
+            {t("habitationHeading")}
+          </Typography>
+          <Divider
+            color={theme.palette.primary.main}
+            sx={{ height: 3.5, width: "5rem", mt: 0.5 }}
+          />
+        </Grid>
+        <Grid container item border="2px solid white">
+          <Grid
+            item
+            xs={3}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+            border="4px solid green"
+          >
+            <Box
+              sx={{
+                my: 2,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              border="2px solid pink"
+            >
+              <Image
+                src="/images/calculation.png"
+                width={50}
+                height={50}
+                alt="Picture of the author"
+              />
+            </Box>
+            <Box
+              sx={{
+                my: 2,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              border="2px solid pink"
+            >
+              <Image
+                src="/images/calendar.png"
+                width={50}
+                height={50}
+                alt="Picture of the author"
+              />
+            </Box>
+            <Box
+              sx={{
+                my: 2,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              border="2px solid pink"
+            >
+              <Image
+                src="/images/mail.png"
+                width={50}
+                height={50}
+                alt="Picture of the author"
+              />
+            </Box>
           </Grid>
 
-          <Grid item xs={2}>
-            <Image
-              src="/images/calculation.png"
-              width={50}
-              height={50}
-              alt="Picture of the author"
-            />
-          </Grid>
-
-          <Grid item={true} xs={10}>
+          {/* <Grid item={true} xs={10}>
             <Grid
               container
               pl={8}
@@ -185,8 +229,9 @@ const Habitation: React.FC = () => {
                   {t("habitationContactBtn")}
                 </Button>
               </Grid>
+
             </Grid>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Grid>
     </Grid>
