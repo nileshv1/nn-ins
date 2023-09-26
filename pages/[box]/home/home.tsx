@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import classes from "../../../styles/page.module.scss";
 import Banner from "@/components/Banner";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography, Divider } from "@mui/material";
 import styles from "../../../styles/variables.module.scss";
 import { useTheme } from "@mui/material/styles";
 
@@ -23,22 +23,23 @@ const Home: React.FC = () => {
     router.push(`/${flag}/${ROUTE_PATHS.HABITATION}`);
   };
   return (
-    <Grid>
+    <Grid container>
       <Banner
         image={contenthome}
         imageText={t("bannerImageText")}
         alt={t("bannerImageText")}
       />
-      <Grid item sx={{ py: 4 }}>
-        <Grid className={classes.page_header_text}>
-          {t("bannerImageText")}
-          <hr
-            className={classes.horizontal_line}
-            style={{ backgroundColor: theme.palette.primary.main }}
+      <Grid container item sx={{ py: 4 }}>
+        <Grid item>
+          <Typography variant="h4">{t("bannerImageText")}</Typography>
+          <Divider
+            color={theme.palette.primary.main}
+            sx={{ height: 3.5, width: "5rem", mt: 0.5 }}
           />
         </Grid>
       </Grid>
       <Grid
+        container
         item
         sx={{
           backgroundColor: styles.homebgColor,
