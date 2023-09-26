@@ -24,11 +24,11 @@ const Header: React.FC = () => {
         alignItems: "center",
       }}
     >
-      <Grid item sx={{ cursor: "pointer" }}>
+      <Grid item sx={{ cursor: "pointer", mt: 1 }}>
         <Image
           src={headerlogo}
-          width={60}
-          height={60}
+          width={50}
+          height={50}
           alt="Header Logo"
           priority={true}
           onClick={handleContinue}

@@ -19,7 +19,7 @@ const Banner = (props: IBanner) => {
           position: "absolute",
           top: "30%",
           left: "4%",
-          maxWidth: "200px",
+          maxWidth: { xs: "90%", sm: "30%", md: "25%", lg: "20%" },
           color: "white",
         }}
       >

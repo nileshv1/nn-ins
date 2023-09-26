@@ -17,10 +17,10 @@ function App({ Component, pageProps }: AppProps) {
         fontWeight: "bold",
       },
       h5: {
-        fontSize: "15px",
+        fontSize: "14px",
       },
       body1: {
-        fontSize: "14px",
+        fontSize: "15px",
       },
     },
     palette: {

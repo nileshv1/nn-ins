@@ -1,13 +1,11 @@
 import { ROUTE_PATHS } from "@/constants/constants";
 import { assurance_auto, contenthome, habitation } from "@/public/images";
-
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
-import classes from "../../../styles/page.module.scss";
 import Banner from "@/components/Banner";
-import { Box, Grid, Typography, Divider } from "@mui/material";
+import { Box, Grid, Typography, Divider, IconButton } from "@mui/material";
 import styles from "../../../styles/variables.module.scss";
 import { useTheme } from "@mui/material/styles";
 
@@ -43,28 +41,39 @@ const Home: React.FC = () => {
         item
         sx={{
           backgroundColor: styles.homebgColor,
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        <Grid className={classes.header_text}>{t("headerInsurance")}</Grid>
-        <Grid className={classes.home_content}>
-          <a onClick={handleContinue} className={classes.cursor}>
+        <Typography variant="body1" sx={{ color: "white", my: 4, ml: "4%" }}>
+          {t("headerInsurance")}
+        </Typography>
+        <Grid
+          sx={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            mb: 6,
+          }}
+        >
+          <IconButton onClick={handleContinue}>
             <Image
               src={assurance_auto}
               alt="assuranceimg"
-              width="116"
+              width="119"
               height="117"
               priority={true}
             />
-          </a>
-          <a onClick={handleContinue} className={classes.cursor}>
+          </IconButton>
+          <IconButton onClick={handleContinue}>
             <Image
               src={habitation}
               alt="habitationimg"
-              width="116"
+              width="119"
               height="117"
               priority={true}
             />
-          </a>
+          </IconButton>
         </Grid>
       </Grid>
     </Grid>
