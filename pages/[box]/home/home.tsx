@@ -17,7 +17,6 @@ const Home: React.FC = () => {
   const { t } = useTranslation();
 
   const handleContinue = () => {
-    // router.push(ROUTE_PATHS.HABITATION);
     router.push(`/${flag}/${ROUTE_PATHS.HABITATION}`);
   };
   return (
@@ -49,6 +48,7 @@ const Home: React.FC = () => {
           {t("headerInsurance")}
         </Typography>
         <Grid
+          item
           sx={{
             display: "flex",
             justifyContent: "space-around",

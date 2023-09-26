@@ -11,6 +11,8 @@ import { ROUTE_PATHS } from "@/constants/constants";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import styles from "../../../styles/variables.module.scss";
+import Banner from "@/components/Banner";
+import { contenthome, policybanner } from "@/public/images";
 
 const Habitation: React.FC = () => {
   const router = useRouter();
@@ -21,8 +23,8 @@ const Habitation: React.FC = () => {
   };
 
   return (
-    <Grid sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
+    <Grid container>
+      {/* <Grid container item spacing={2}>
         <Grid item xs={12}>
           <Card
             sx={{
@@ -42,7 +44,15 @@ const Habitation: React.FC = () => {
             </CardContent>
           </Card>
         </Grid>
-      </Grid>
+      </Grid> */}
+      <Banner
+        image={policybanner}
+        imageText={t("")}
+        alt={t("bannerImageText")}
+      />
+      <Typography variant="body2" color="text.secondary" sx={{ my: 3, ml: 3 }}>
+        {t("habitationCardContent")}
+      </Typography>
 
       <Grid className={classes.info_section}>
         <Grid container spacing={2} alignItems="center" sx={{ px: 2 }}>
