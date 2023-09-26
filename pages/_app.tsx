@@ -9,7 +9,6 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
-const theme = createTheme();
 function App({ Component, pageProps }: AppProps) {
   const primaryTheme = createTheme({
     typography: {
@@ -19,6 +18,9 @@ function App({ Component, pageProps }: AppProps) {
       },
       h5: {
         fontSize: "15px",
+      },
+      body1: {
+        fontSize: "14px",
       },
     },
     palette: {

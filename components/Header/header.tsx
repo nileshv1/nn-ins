@@ -4,12 +4,8 @@ import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
-import page_classes from "../../styles/page.module.scss";
-import classes from "./header.module.scss";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const Header: React.FC = () => {
-  const theme = createTheme();
   const router = useRouter();
   const { box } = router.query;
   var flag = box ? box : "rgf";
@@ -20,7 +16,6 @@ const Header: React.FC = () => {
   };
 
   return (
-    // <ThemeProvider theme={selectedTheme}></ThemeProvider>
     <Grid
       container
       sx={{

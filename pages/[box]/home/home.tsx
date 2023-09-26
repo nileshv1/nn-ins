@@ -6,18 +6,15 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import classes from "../../../styles/page.module.scss";
-// import dynamic from "next/dynamic";
 import Banner from "@/components/Banner";
 import { Box, Grid } from "@mui/material";
 import styles from "../../../styles/variables.module.scss";
-import { useTheme } from '@mui/material/styles';
-
-// const Banner = dynamic(() => import("@/components/Banner"), { ssr: true });
+import { useTheme } from "@mui/material/styles";
 
 const Home: React.FC = () => {
   const router = useRouter();
   const { box } = router.query;
-  var flag = box ? box : "rgf"
+  var flag = box ? box : "rgf";
   const theme = useTheme();
   const { t } = useTranslation();
 
@@ -35,8 +32,10 @@ const Home: React.FC = () => {
       <Grid item sx={{ py: 4 }}>
         <Grid className={classes.page_header_text}>
           {t("bannerImageText")}
-          <hr className={classes.horizontal_line}
-           style={{ backgroundColor:theme.palette.primary.main }}/>
+          <hr
+            className={classes.horizontal_line}
+            style={{ backgroundColor: theme.palette.primary.main }}
+          />
         </Grid>
       </Grid>
       <Grid
