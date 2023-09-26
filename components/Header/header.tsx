@@ -6,8 +6,10 @@ import { useRouter } from "next/router";
 import React from "react";
 import page_classes from "../../styles/page.module.scss";
 import classes from "./header.module.scss";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const Header: React.FC = () => {
+  const theme = createTheme();
   const router = useRouter();
   const { box } = router.query;
   var flag = box ? box : "rgf";
@@ -18,16 +20,16 @@ const Header: React.FC = () => {
   };
 
   return (
+    // <ThemeProvider theme={selectedTheme}></ThemeProvider>
     <Grid
       container
-      border="2px solid red"
       sx={{
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
       }}
     >
-      <Grid item border="1px solid blue" sx={{ cursor: "pointer" }}>
+      <Grid item sx={{ cursor: "pointer" }}>
         <Image
           src={headerlogo}
           width={60}
@@ -38,11 +40,11 @@ const Header: React.FC = () => {
         />
       </Grid>
       <Grid item>
-        <Typography variant="h5">{t("headerProfileText")}</Typography>
-        <Grid border="1px solid red" sx={{ display: "flex" }}>
-          <Typography border="1px solid blue" variant="h6">
-            {t("headerCompanyText")}
-          </Typography>
+        <Typography variant="h4">{t("headerProfileText")}</Typography>
+        <Grid
+          sx={{ display: "flex", justifyContent: "end", alignItems: "center" }}
+        >
+          <Typography variant="h5">{t("headerCompanyText")}</Typography>
           <Image
             src={nngroup}
             width={30}

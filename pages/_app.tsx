@@ -12,6 +12,15 @@ import dynamic from "next/dynamic";
 const theme = createTheme();
 function App({ Component, pageProps }: AppProps) {
   const primaryTheme = createTheme({
+    typography: {
+      h4: {
+        fontSize: "18px",
+        fontWeight: "bold",
+      },
+      h5: {
+        fontSize: "15px",
+      },
+    },
     palette: {
       primary: {
         main: "#55bb14",
