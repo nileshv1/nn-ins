@@ -34,7 +34,7 @@ const Simulation: React.FC = () => {
     router.push(`/${box}${ROUTE_PATHS.CARDETAILS}`);
     setUserInput("");
   };
-  const handleIcon = (open) => {
+  const handleIcon = (open: boolean) => {
     setOpen(!open);
   };
 
@@ -47,14 +47,14 @@ const Simulation: React.FC = () => {
       />
 
       <Grid container item sx={{ py: 4, px: { md: 3, xs: 1 } }}>
-        <Grid item sx={{ pb: 2 }} xs={12} border="2px solid orange">
+        <Grid item sx={{ pb: 2 }} xs={12}>
           <Typography variant="h4">{t("simulationHeaderText")}</Typography>
           <Divider
             color={theme.palette.primary.main}
             sx={{ height: 3.5, width: "5rem", mt: 0.5 }}
           />
         </Grid>
-        <Grid item border="2px solid purple" xs={12}>
+        <Grid item xs={12}>
           <InputLabel
             htmlFor="component-simple"
             sx={{ fontSize: "16px", color: "text.secondary" }}
@@ -72,14 +72,15 @@ const Simulation: React.FC = () => {
             onChange={handleChange}
           />
         </Grid>
-      </Grid>
-
-      <Grid container spacing={2} sx={{ px: 2 }}>
-        <Grid item xs={12} display="flex" justifyContent="flex-end">
+        <Grid
+          item
+          xs={12}
+          sx={{ display: "flex", justifyContent: "end", mt: 2 }}
+        >
           <Button
             variant="contained"
             sx={{
-              px: 9,
+              px: { xs: 7, md: 9 },
               backgroundColor: theme.palette.primary.light,
               ":hover": {
                 bgcolor: theme.palette.primary.main,
@@ -90,13 +91,14 @@ const Simulation: React.FC = () => {
           >
             {t("simulationNextBtn")}
           </Button>
-          .
         </Grid>
-
-        <Grid item xs={12} display="flex" justifyContent="flex-end">
+        <Grid
+          item
+          xs={12}
+          sx={{ display: "flex", justifyContent: "end", mt: 2 }}
+        >
           <Link href={`/${box}${ROUTE_PATHS.YOURCAR}`}>
             <Button
-              // onClick={handleClick}
               variant="outlined"
               sx={{
                 borderColor: theme.palette.primary.main,

@@ -7,7 +7,7 @@ import { useTranslation } from "next-i18next";
 
 interface CustomModalProps {
   open: boolean;
-  setOpen: boolean;
+  setOpen: any;
 }
 
 const style = {
