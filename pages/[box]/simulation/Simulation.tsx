@@ -1,13 +1,15 @@
 import React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { Box, Grid, InputLabel, TextField, Divider } from "@mui/material";
+import {
+  Box,
+  Grid,
+  InputLabel,
+  TextField,
+  Divider,
+  Typography,
+  Button,
+} from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CustomModal from "@/components/Modal/CustomModal";
-import classes from "../../../styles/page.module.scss";
 import Link from "next/link";
 import { ROUTE_PATHS } from "@/constants/constants";
 import { useRouter } from "next/router";
@@ -32,6 +34,9 @@ const Simulation: React.FC = () => {
     router.push(`/${box}${ROUTE_PATHS.CARDETAILS}`);
     setUserInput("");
   };
+  const handleIcon = (open) => {
+    setOpen(!open);
+  };
 
   return (
     <Grid container>
@@ -41,7 +46,7 @@ const Simulation: React.FC = () => {
         alt={t("bannerImageText")}
       />
 
-      <Grid container item sx={{ py: 4, px: 3 }}>
+      <Grid container item sx={{ py: 4, px: { md: 3, xs: 1 } }}>
         <Grid item sx={{ pb: 2 }} xs={12} border="2px solid orange">
           <Typography variant="h4">{t("simulationHeaderText")}</Typography>
           <Divider
@@ -49,13 +54,13 @@ const Simulation: React.FC = () => {
             sx={{ height: 3.5, width: "5rem", mt: 0.5 }}
           />
         </Grid>
-        <Grid item border="2px solid purple" xs={12}></Grid>
-      </Grid>
-      <Grid container spacing={2} sx={{ px: 2 }}>
-        <Grid item xs={12}>
-          <InputLabel htmlFor="component-simple">
+        <Grid item border="2px solid purple" xs={12}>
+          <InputLabel
+            htmlFor="component-simple"
+            sx={{ fontSize: "16px", color: "text.secondary" }}
+          >
             {t("simulationContentLabel")}
-            <InfoOutlinedIcon onClick={() => setOpen((open) => !open)} />
+            <InfoOutlinedIcon onClick={() => handleIcon(open)} />
             {open && <CustomModal open={open} setOpen={setOpen} />}
           </InputLabel>
           <TextField
@@ -67,7 +72,9 @@ const Simulation: React.FC = () => {
             onChange={handleChange}
           />
         </Grid>
+      </Grid>
 
+      <Grid container spacing={2} sx={{ px: 2 }}>
         <Grid item xs={12} display="flex" justifyContent="flex-end">
           <Button
             variant="contained"
