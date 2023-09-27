@@ -1,17 +1,12 @@
 import React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Box, Grid, Divider } from "@mui/material";
-import classes from "../../../styles/habitation/habitation.module.scss";
+import { Box, Grid, Divider, Button } from "@mui/material";
 import Image from "next/image";
 import { ROUTE_PATHS } from "@/constants/constants";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import Banner from "@/components/Banner";
-import { contenthome, policybanner } from "@/public/images";
+import { policybanner } from "@/public/images";
 import { useTheme } from "@mui/material/styles";
 
 const Habitation: React.FC = () => {
