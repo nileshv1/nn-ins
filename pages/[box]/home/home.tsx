@@ -8,6 +8,7 @@ import Banner from "@/components/Banner";
 import { Box, Grid, Typography, Divider, IconButton } from "@mui/material";
 import styles from "../../../styles/variables.module.scss";
 import { useTheme } from "@mui/material/styles";
+import Link from "next/link";
 
 const Home: React.FC = () => {
   const router = useRouter();
@@ -56,7 +57,7 @@ const Home: React.FC = () => {
             mb: 6,
           }}
         >
-          <IconButton onClick={handleContinue}>
+          <Link href={`/${flag}/${ROUTE_PATHS.HABITATION}`}>
             <Image
               src={assurance_auto}
               alt="assuranceimg"
@@ -64,8 +65,8 @@ const Home: React.FC = () => {
               height="117"
               priority={true}
             />
-          </IconButton>
-          <IconButton onClick={handleContinue}>
+          </Link>
+          <Link href={`/${flag}/${ROUTE_PATHS.HABITATION}`}>
             <Image
               src={habitation}
               alt="habitationimg"
@@ -73,7 +74,7 @@ const Home: React.FC = () => {
               height="117"
               priority={true}
             />
-          </IconButton>
+          </Link>
         </Grid>
       </Grid>
     </Grid>

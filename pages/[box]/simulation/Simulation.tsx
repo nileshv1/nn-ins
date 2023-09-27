@@ -12,8 +12,7 @@ import Link from "next/link";
 import { ROUTE_PATHS } from "@/constants/constants";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
-import styles from "../../../styles/variables.module.scss";
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from "@mui/material/styles";
 
 const Simulation: React.FC = () => {
   const router = useRouter();
@@ -51,8 +50,10 @@ const Simulation: React.FC = () => {
               <Typography variant="h5" color="text.secondary">
                 {t("simulationHeaderText")}
               </Typography>
-              <hr className={classes.horizontal_line} 
-              style={{ backgroundColor:theme.palette.primary.main }}/>
+              <hr
+                className={classes.horizontal_line}
+                style={{ backgroundColor: theme.palette.primary.main }}
+              />
             </CardContent>
           </Card>
         </Grid>
@@ -103,7 +104,6 @@ const Simulation: React.FC = () => {
                 ":hover": {
                   borderColor: theme.palette.primary.main,
                 },
-                
               }}
             >
               {t("simulationWithoutChassisBtn")}
