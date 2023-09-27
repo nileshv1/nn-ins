@@ -46,7 +46,6 @@ const Habitation: React.FC = () => {
           py: 4,
           px: { xs: 1, sm: 4 },
         }}
-        border="2px solid orange"
       >
         <Grid item sx={{ pb: 3 }}>
           <Typography variant="body1" sx={{ color: "white" }}>
@@ -57,7 +56,7 @@ const Habitation: React.FC = () => {
             sx={{ height: 3.5, width: "5rem", mt: 0.5 }}
           />
         </Grid>
-        <Grid container item border="2px solid orange" sx={{ display: "flex" }}>
+        <Grid container item sx={{ display: "flex", mt: 1 }}>
           <Grid
             item
             xs={3}
@@ -67,7 +66,6 @@ const Habitation: React.FC = () => {
               justifyContent: "center",
               alignItems: "center",
             }}
-            border="4px solid green"
           >
             <Image
               src="/images/calculation.png"
@@ -82,10 +80,10 @@ const Habitation: React.FC = () => {
             sx={{
               display: "flex",
               flexDirection: { xs: "column", sm: "row" },
-              justifyContent: { sx: "center", sm: "space-around" },
+              justifyContent: { sx: "center", sm: "space-between" },
               alignItems: "center",
+              px: { lg: 10, md: 5 },
             }}
-            border="4px solid green"
           >
             <Typography
               variant="body2"
@@ -104,41 +102,18 @@ const Habitation: React.FC = () => {
               {t("habitationSimulationBtn")}
             </Button>
           </Grid>
-          {/* <Grid item={true} xs={10}>
-            <Grid
-              container
-              pl={8}
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                alignItems: { xs: "start", md: "center" },
-              }}
-            >
-              <Grid item xs={12} md={6}>
-                <Typography
-                  variant="body2"
-                  className={classes.text_style}
-                  sx={{ fontSize: 12 }}
-                >
-                  {t("habitationSimulationContent")}
-                </Typography>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Button
-                  variant="contained"
-                  color="success"
-                  sx={{
-                    width: 140,
-                  }}
-                  onClick={handleSimulation}
-                >
-                  {t("habitationSimulationBtn")}
-                </Button>
-              </Grid>
-            </Grid>
-          </Grid>
-
-          <Grid item xs={2}>
+        </Grid>
+        <Grid container item sx={{ display: "flex", mt: 2 }}>
+          <Grid
+            item
+            xs={3}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <Image
               src="/images/calendar.png"
               width={50}
@@ -146,41 +121,46 @@ const Habitation: React.FC = () => {
               alt="Picture of the author"
             />
           </Grid>
-
-          <Grid item={true} xs={10}>
-            <Grid
-              container
-              pl={8}
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                alignItems: { xs: "start", md: "center" },
-              }}
+          <Grid
+            item
+            xs={9}
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              justifyContent: { sx: "center", sm: "space-between" },
+              alignItems: "center",
+              px: { lg: 10, md: 5 },
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{ color: "white", mb: { xs: 1, sm: 0 }, textAlign: "center" }}
             >
-              <Grid item xs={12} md={6}>
-                <Typography
-                  variant="body2"
-                  className={classes.text_style}
-                  sx={{ fontSize: 12 }}
-                >
-                  {t("habitationRendezvousContent")}
-                </Typography>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Button
-                  variant="contained"
-                  color="warning"
-                  sx={{
-                    width: 140,
-                  }}
-                >
-                  {t("habitationRendezvousBtn")}
-                </Button>
-              </Grid>
-            </Grid>
+              {t("habitationRendezvousContent")}
+            </Typography>
+            <Button
+              variant="contained"
+              color="warning"
+              sx={{
+                width: 140,
+              }}
+              onClick={handleSimulation}
+            >
+              {t("habitationRendezvousBtn")}
+            </Button>
           </Grid>
-
-          <Grid item xs={2}>
+        </Grid>
+        <Grid container item sx={{ display: "flex", mt: 2 }}>
+          <Grid
+            item
+            xs={3}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <Image
               src="/images/mail.png"
               width={50}
@@ -188,38 +168,33 @@ const Habitation: React.FC = () => {
               alt="Picture of the author"
             />
           </Grid>
-          <Grid item={true} xs={10}>
-            <Grid
-              container
-              pl={8}
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                alignItems: { xs: "start", md: "center" },
-              }}
+          <Grid
+            item
+            xs={9}
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              justifyContent: { sx: "center", sm: "space-between" },
+              alignItems: "center",
+              px: { lg: 10, md: 5 },
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{ color: "white", mb: { xs: 1, sm: 0 }, textAlign: "center" }}
             >
-              <Grid item xs={12} md={6}>
-                <Typography
-                  variant="body2"
-                  className={classes.text_style}
-                  sx={{ fontSize: 12 }}
-                >
-                  {t("habitationContactContent")}
-                </Typography>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Button
-                  variant="contained"
-                  sx={{
-                    width: 140,
-                  }}
-                >
-                  {t("habitationContactBtn")}
-                </Button>
-              </Grid>
-
-            </Grid>
-          </Grid> */}
+              {t("habitationContactContent")}
+            </Typography>
+            <Button
+              variant="contained"
+              sx={{
+                width: 140,
+              }}
+              onClick={handleSimulation}
+            >
+              {t("habitationContactBtn")}
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
