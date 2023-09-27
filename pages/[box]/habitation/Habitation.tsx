@@ -183,6 +183,7 @@ const Habitation: React.FC = () => {
             <Link href={`/${box}${ROUTE_PATHS.SIMULATION}`}>
               <Button
                 variant="contained"
+                color="success"
                 sx={{
                   width: 140,
                 }}
