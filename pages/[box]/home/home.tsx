@@ -17,9 +17,6 @@ const Home: React.FC = () => {
   const theme = useTheme();
   const { t } = useTranslation();
 
-  const handleContinue = () => {
-    router.push(`/${flag}/${ROUTE_PATHS.HABITATION}`);
-  };
   return (
     <Grid container>
       <Banner

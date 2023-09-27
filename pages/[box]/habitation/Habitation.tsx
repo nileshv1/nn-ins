@@ -8,14 +8,12 @@ import { useTranslation } from "next-i18next";
 import Banner from "@/components/Banner";
 import { policybanner } from "@/public/images";
 import { useTheme } from "@mui/material/styles";
+import Link from "next/link";
 
 const Habitation: React.FC = () => {
   const router = useRouter();
   const { box } = router.query;
   const { t } = useTranslation();
-  const handleSimulation = () => {
-    router.push(`/${box}${ROUTE_PATHS.SIMULATION}`);
-  };
   const theme = useTheme();
 
   return (
@@ -86,16 +84,17 @@ const Habitation: React.FC = () => {
             >
               {t("habitationSimulationContent")}
             </Typography>
-            <Button
-              variant="contained"
-              color="success"
-              sx={{
-                width: 140,
-              }}
-              onClick={handleSimulation}
-            >
-              {t("habitationSimulationBtn")}
-            </Button>
+            <Link href={`/${box}${ROUTE_PATHS.SIMULATION}`}>
+              <Button
+                variant="contained"
+                color="success"
+                sx={{
+                  width: 140,
+                }}
+              >
+                {t("habitationSimulationBtn")}
+              </Button>
+            </Link>
           </Grid>
         </Grid>
         <Grid container item sx={{ display: "flex", mt: 2 }}>
@@ -133,16 +132,17 @@ const Habitation: React.FC = () => {
             >
               {t("habitationRendezvousContent")}
             </Typography>
-            <Button
-              variant="contained"
-              color="warning"
-              sx={{
-                width: 140,
-              }}
-              onClick={handleSimulation}
-            >
-              {t("habitationRendezvousBtn")}
-            </Button>
+            <Link href={`/${box}${ROUTE_PATHS.SIMULATION}`}>
+              <Button
+                variant="contained"
+                color="warning"
+                sx={{
+                  width: 140,
+                }}
+              >
+                {t("habitationRendezvousBtn")}
+              </Button>
+            </Link>
           </Grid>
         </Grid>
         <Grid container item sx={{ display: "flex", mt: 2 }}>
@@ -180,15 +180,16 @@ const Habitation: React.FC = () => {
             >
               {t("habitationContactContent")}
             </Typography>
-            <Button
-              variant="contained"
-              sx={{
-                width: 140,
-              }}
-              onClick={handleSimulation}
-            >
-              {t("habitationContactBtn")}
-            </Button>
+            <Link href={`/${box}${ROUTE_PATHS.SIMULATION}`}>
+              <Button
+                variant="contained"
+                sx={{
+                  width: 140,
+                }}
+              >
+                {t("habitationContactBtn")}
+              </Button>
+            </Link>
           </Grid>
         </Grid>
       </Grid>
