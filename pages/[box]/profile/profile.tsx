@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import Grid from "@mui/material/Unstable_Grid2";
+// import Grid from "@mui/material/Unstable_Grid2";
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
-import {Box, Typography, Button, FormGroup, FormControlLabel, Checkbox} from '@mui/material';
+import {Box, Typography, Button, FormGroup, FormControlLabel, Checkbox, Grid} from '@mui/material';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useTheme } from '@mui/material/styles';
 
@@ -40,7 +40,7 @@ const Profile = () => {
     <ThemeProvider theme={themeprofile}>
     <Grid container 
         sx={{display:"flex" , justifyContent: "center"}}
-        border="0px solid green">
+        border="1px solid green">
         <Grid item xs={12} sm={6}>
           <Box sx={{display:"flex", justifyContent: "center", alignItems:"center", mb:4}} border="0px solid red">
               <IconButton aria-label="delete" size="large" sx={{ml:{xs:1, md:2}}}>
