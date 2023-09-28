@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { Button } from "@mui/material";
 import { ROUTE_PATHS } from "@/constants/constants";
-import styles from "../../../styles/variables.module.scss";
 import Link from "next/link";
 import InfoIcon from "@mui/icons-material/Info";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
@@ -26,7 +25,7 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import classes from "../../../styles/slug/slug.module.scss";
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from "@mui/material/styles";
 
 const schema = yup.object().shape({
   fuel: yup.string().required("Fuel is required"),
@@ -463,7 +462,7 @@ const Car: React.FC = () => {
                     type="submit"
                     sx={{
                       px: 9,
-                      backgroundColor:theme.palette.primary.light,
+                      backgroundColor: theme.palette.primary.light,
                       ":hover": {
                         bgcolor: theme.palette.primary.main,
                       },
