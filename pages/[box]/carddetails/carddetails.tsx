@@ -41,13 +41,8 @@ const schema = yup.object().shape({
     .min(2000, "Minimum value is 2000")
     .max(157300, "maximum value is 157300"),
 });
-interface FormProps {
-  control: any; // Replace 'any' with the appropriate type for your control object
-  errors: any; // Replace 'any' with the appropriate type for your errors object
-  defaultValue: number;
-}
 
-const Carform: React.FC<FormProps> = () => {
+const Carddetails: React.FC = () => {
   const router = useRouter();
   const { box } = router.query;
   const slug = router.query.slug;
@@ -65,10 +60,17 @@ const Carform: React.FC<FormProps> = () => {
     window.scroll(0, 0);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (slug == "YourCarDetails") {
+      setToggle(true);
+    } else if (slug == "YourCar") {
+      setToggle(false);
+    }
+  }, []);
   const onSubmit = (data: any) => {
     router.push(`/${box}${ROUTE_PATHS.FINAL}`);
   };
+  const [toggle, setToggle] = useState(false);
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(!open);
@@ -162,16 +164,27 @@ const Carform: React.FC<FormProps> = () => {
                     {t("fuel")}
                   </Typography>
                 </Grid>
-                <Grid md={6} xs={12}>
-                  <Dropdown
-                    options={Vehicle_Details.Fuels}
-                    label="fuel"
-                    id="fuel"
-                    name="fuel"
-                    errors={errors}
-                    control={control}
-                  />
-                </Grid>
+                {toggle ? (
+                  <Grid md={6} xs={7}>
+                    <Typography
+                      variant="subtitle2"
+                      sx={{ display: "flex", justifyContent: "flex-end" }}
+                    >
+                      {t("essence")}
+                    </Typography>
+                  </Grid>
+                ) : (
+                  <Grid md={6} xs={12}>
+                    <Dropdown
+                      options={Vehicle_Details.Fuels}
+                      label="fuel"
+                      id="fuel"
+                      name="fuel"
+                      errors={errors}
+                      control={control}
+                    />
+                  </Grid>
+                )}
               </Grid>
               <Grid
                 md={10}
@@ -189,16 +202,27 @@ const Carform: React.FC<FormProps> = () => {
                     {t("brand")}
                   </Typography>
                 </Grid>
-                <Grid md={6} xs={12}>
-                  <Dropdown
-                    options={Vehicle_Details.Fuels}
-                    label="brand"
-                    id="brand"
-                    name="brand"
-                    errors={errors}
-                    control={control}
-                  />
-                </Grid>
+                {toggle ? (
+                  <Grid md={6} xs={7}>
+                    <Typography
+                      variant="subtitle2"
+                      sx={{ display: "flex", justifyContent: "flex-end" }}
+                    >
+                      {t("volkswagen")}
+                    </Typography>
+                  </Grid>
+                ) : (
+                  <Grid md={6} xs={12}>
+                    <Dropdown
+                      options={Vehicle_Details.Fuels}
+                      label="brand"
+                      id="brand"
+                      name="brand"
+                      errors={errors}
+                      control={control}
+                    />
+                  </Grid>
+                )}
               </Grid>
               <Grid
                 md={10}
@@ -216,16 +240,27 @@ const Carform: React.FC<FormProps> = () => {
                     {t("model")}
                   </Typography>
                 </Grid>
-                <Grid md={6} xs={12}>
-                  <Dropdown
-                    options={Vehicle_Details.Fuels}
-                    label="model"
-                    id="model"
-                    name="model"
-                    errors={errors}
-                    control={control}
-                  />
-                </Grid>
+                {toggle ? (
+                  <Grid md={6} xs={7}>
+                    <Typography
+                      variant="subtitle2"
+                      sx={{ display: "flex", justifyContent: "flex-end" }}
+                    >
+                      {t("golf")}
+                    </Typography>
+                  </Grid>
+                ) : (
+                  <Grid md={6} xs={12}>
+                    <Dropdown
+                      options={Vehicle_Details.Fuels}
+                      label="model"
+                      id="model"
+                      name="model"
+                      errors={errors}
+                      control={control}
+                    />
+                  </Grid>
+                )}
               </Grid>
               <Grid
                 md={10}
@@ -243,16 +278,27 @@ const Carform: React.FC<FormProps> = () => {
                     {t("type")}
                   </Typography>
                 </Grid>
-                <Grid md={6} xs={12}>
-                  <Dropdown
-                    options={Vehicle_Details.Fuels}
-                    label="type"
-                    id="type"
-                    name="type"
-                    errors={errors}
-                    control={control}
-                  />
-                </Grid>
+                {toggle ? (
+                  <Grid md={6} xs={7}>
+                    <Typography
+                      variant="subtitle2"
+                      sx={{ display: "flex", justifyContent: "flex-end" }}
+                    >
+                      {t("tsi")}
+                    </Typography>
+                  </Grid>
+                ) : (
+                  <Grid md={6} xs={12}>
+                    <Dropdown
+                      options={Vehicle_Details.Fuels}
+                      label="type"
+                      id="type"
+                      name="type"
+                      errors={errors}
+                      control={control}
+                    />
+                  </Grid>
+                )}
               </Grid>
               <Grid
                 md={10}
@@ -347,7 +393,7 @@ const Carform: React.FC<FormProps> = () => {
                   >
                     <Controller
                       name="number1"
-                      defaultValue={0}
+                      defaultValue=""
                       control={control}
                       render={({ field }) => (
                         <OutlinedInput
@@ -368,6 +414,35 @@ const Carform: React.FC<FormProps> = () => {
                   </FormControl>
                 </Grid>
               </Grid>
+              {/* <Grid
+                md={6}
+                mdOffset={3}
+                xs={12}
+                container
+                sx={{ mb: 2 }}
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                border="0px solid orange"
+              >
+                <Grid md={8} xs={12}>
+                  <Typography variant="body1" gutterBottom>
+                    {t("dateOfPurchase")}
+                  </Typography>
+                </Grid>
+                <Grid
+                  md={4}
+                  xs={12}
+                  sx={{
+                    display: "flex",
+                    justifyContent: { xs: "flex-start", md: "flex-end" },
+                  }}
+                >
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker slotProps={{ textField: { size: "small" } }} />
+                  </LocalizationProvider>
+                </Grid>
+              </Grid> */}
               <Grid
                 md={6}
                 mdOffset={3}
@@ -405,4 +480,4 @@ const Carform: React.FC<FormProps> = () => {
   );
 };
 
-export default Carform;
+export default Carddetails;
