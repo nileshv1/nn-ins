@@ -6,7 +6,7 @@ export enum ROUTE_PATHS {
   CAR = "/details",
   HABITATION = "habitation",
   SIMULATION = "/simulation",
-  CARDETAILS = "/car/YourCarDetails",
+  CARDETAILS = "/carddetails",
   YOURCAR = "/carform",
   FINAL = "/final",
 }

@@ -28,10 +28,6 @@ import classes from "../../../styles/slug/slug.module.scss";
 import { useTheme } from "@mui/material/styles";
 
 const schema = yup.object().shape({
-  fuel: yup.string().required("Fuel is required"),
-  brand: yup.string().required("Brand is required"),
-  model: yup.string().required("Model is required"),
-  type: yup.string().required("Type is required"),
   construction: yup.string().required("Construction is required"),
   registration: yup.string().required("Registration is required"),
   number1: yup
@@ -60,17 +56,11 @@ const Carddetails: React.FC = () => {
     window.scroll(0, 0);
   };
 
-  useEffect(() => {
-    if (slug == "YourCarDetails") {
-      setToggle(true);
-    } else if (slug == "YourCar") {
-      setToggle(false);
-    }
-  }, []);
+  useEffect(() => {}, []);
   const onSubmit = (data: any) => {
+    console.log(data, "data");
     router.push(`/${box}${ROUTE_PATHS.FINAL}`);
   };
-  const [toggle, setToggle] = useState(false);
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(!open);
@@ -164,27 +154,15 @@ const Carddetails: React.FC = () => {
                     {t("fuel")}
                   </Typography>
                 </Grid>
-                {toggle ? (
-                  <Grid md={6} xs={7}>
-                    <Typography
-                      variant="subtitle2"
-                      sx={{ display: "flex", justifyContent: "flex-end" }}
-                    >
-                      {t("essence")}
-                    </Typography>
-                  </Grid>
-                ) : (
-                  <Grid md={6} xs={12}>
-                    <Dropdown
-                      options={Vehicle_Details.Fuels}
-                      label="fuel"
-                      id="fuel"
-                      name="fuel"
-                      errors={errors}
-                      control={control}
-                    />
-                  </Grid>
-                )}
+
+                <Grid md={6} xs={7}>
+                  <Typography
+                    variant="subtitle2"
+                    sx={{ display: "flex", justifyContent: "flex-end" }}
+                  >
+                    {t("essence")}
+                  </Typography>
+                </Grid>
               </Grid>
               <Grid
                 md={10}
@@ -202,27 +180,14 @@ const Carddetails: React.FC = () => {
                     {t("brand")}
                   </Typography>
                 </Grid>
-                {toggle ? (
-                  <Grid md={6} xs={7}>
-                    <Typography
-                      variant="subtitle2"
-                      sx={{ display: "flex", justifyContent: "flex-end" }}
-                    >
-                      {t("volkswagen")}
-                    </Typography>
-                  </Grid>
-                ) : (
-                  <Grid md={6} xs={12}>
-                    <Dropdown
-                      options={Vehicle_Details.Fuels}
-                      label="brand"
-                      id="brand"
-                      name="brand"
-                      errors={errors}
-                      control={control}
-                    />
-                  </Grid>
-                )}
+                <Grid md={6} xs={7}>
+                  <Typography
+                    variant="subtitle2"
+                    sx={{ display: "flex", justifyContent: "flex-end" }}
+                  >
+                    {t("volkswagen")}
+                  </Typography>
+                </Grid>
               </Grid>
               <Grid
                 md={10}
@@ -240,27 +205,14 @@ const Carddetails: React.FC = () => {
                     {t("model")}
                   </Typography>
                 </Grid>
-                {toggle ? (
-                  <Grid md={6} xs={7}>
-                    <Typography
-                      variant="subtitle2"
-                      sx={{ display: "flex", justifyContent: "flex-end" }}
-                    >
-                      {t("golf")}
-                    </Typography>
-                  </Grid>
-                ) : (
-                  <Grid md={6} xs={12}>
-                    <Dropdown
-                      options={Vehicle_Details.Fuels}
-                      label="model"
-                      id="model"
-                      name="model"
-                      errors={errors}
-                      control={control}
-                    />
-                  </Grid>
-                )}
+                <Grid md={6} xs={7}>
+                  <Typography
+                    variant="subtitle2"
+                    sx={{ display: "flex", justifyContent: "flex-end" }}
+                  >
+                    {t("golf")}
+                  </Typography>
+                </Grid>
               </Grid>
               <Grid
                 md={10}
@@ -278,27 +230,14 @@ const Carddetails: React.FC = () => {
                     {t("type")}
                   </Typography>
                 </Grid>
-                {toggle ? (
-                  <Grid md={6} xs={7}>
-                    <Typography
-                      variant="subtitle2"
-                      sx={{ display: "flex", justifyContent: "flex-end" }}
-                    >
-                      {t("tsi")}
-                    </Typography>
-                  </Grid>
-                ) : (
-                  <Grid md={6} xs={12}>
-                    <Dropdown
-                      options={Vehicle_Details.Fuels}
-                      label="type"
-                      id="type"
-                      name="type"
-                      errors={errors}
-                      control={control}
-                    />
-                  </Grid>
-                )}
+                <Grid md={6} xs={7}>
+                  <Typography
+                    variant="subtitle2"
+                    sx={{ display: "flex", justifyContent: "flex-end" }}
+                  >
+                    {t("tsi")}
+                  </Typography>
+                </Grid>
               </Grid>
               <Grid
                 md={10}
@@ -393,7 +332,7 @@ const Carddetails: React.FC = () => {
                   >
                     <Controller
                       name="number1"
-                      defaultValue=""
+                      defaultValue={0}
                       control={control}
                       render={({ field }) => (
                         <OutlinedInput
@@ -414,35 +353,6 @@ const Carddetails: React.FC = () => {
                   </FormControl>
                 </Grid>
               </Grid>
-              {/* <Grid
-                md={6}
-                mdOffset={3}
-                xs={12}
-                container
-                sx={{ mb: 2 }}
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                border="0px solid orange"
-              >
-                <Grid md={8} xs={12}>
-                  <Typography variant="body1" gutterBottom>
-                    {t("dateOfPurchase")}
-                  </Typography>
-                </Grid>
-                <Grid
-                  md={4}
-                  xs={12}
-                  sx={{
-                    display: "flex",
-                    justifyContent: { xs: "flex-start", md: "flex-end" },
-                  }}
-                >
-                  <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker slotProps={{ textField: { size: "small" } }} />
-                  </LocalizationProvider>
-                </Grid>
-              </Grid> */}
               <Grid
                 md={6}
                 mdOffset={3}
